@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 3,
+  "paintingId": "chitianpingdenvren",
+  "anchors": [
+    {
+      "label": "天平",
+      "regionIdx": "0",
+      "x": 568,
+      "y": 622
+    },
+    {
+      "label": "《最后的审判》",
+      "regionIdx": "0",
+      "x": 685,
+      "y": 183
+    },
+    {
+      "label": "女性人物",
+      "regionIdx": "0",
+      "x": 864,
+      "y": 540
+    },
+    {
+      "label": "金银珠宝",
+      "regionIdx": "0",
+      "x": 431,
+      "y": 739
+    },
+    {
+      "label": "镜子",
+      "regionIdx": "0",
+      "x": 56,
+      "y": 248
+    }
+  ],
+  "l3Nodes": [],
+  "l2L3Edges": [],
+  "l2L2Edges": []
+}
