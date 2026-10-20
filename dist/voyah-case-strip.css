@@ -1,0 +1,41 @@
+/* Editorial outcomes between sections 03 and 04; no shared section rules. */
+@font-face{font-family:CaseStripSC;src:url('/assets/fonts/NotoSansSC.ttf?v=case-rhythm-4') format('truetype');font-weight:100 900;font-display:swap}
+.voyah-case .voyah-case-strip{padding:80px 0 104px;margin-top:-96px;font-family:Noto,CaseStripSC,sans-serif;scroll-margin-top:32px}
+.voyah-case .case-strip-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(5,auto);column-gap:48px;row-gap:0;align-items:stretch}
+.voyah-case .case-strip-item{position:relative;display:grid;grid-row:span 5;grid-template-rows:subgrid;min-width:0}
+.voyah-case .case-strip-item+.case-strip-item::before{content:'';position:absolute;left:-24px;top:18px;bottom:12px;width:1px;background:#e6e9e3}
+.voyah-case .case-strip-number{font-size:10px;line-height:18px;letter-spacing:.06em;color:#92a59e;margin-bottom:12px}
+.voyah-case .case-strip-item h3{font:500 17px/26px Alibaba,CaseStripSC,sans-serif;color:var(--ink);margin:0 0 9px}
+.voyah-case .case-strip-number,.voyah-case .case-strip-item h3{transition:color 180ms ease}
+.voyah-case .case-strip-item:focus-within :is(.case-strip-number,h3){color:var(--teal)}
+@media(hover:hover) and (pointer:fine){
+ .voyah-case .case-strip-item:hover :is(.case-strip-number,h3){color:var(--teal)}
+}
+.voyah-case .case-strip-judgment{font-size:10.5px;line-height:20px;color:#6d8b7d}
+.voyah-case .case-strip-judgment>span{margin-inline:3px;color:#c1ccc5}
+.voyah-case .case-strip-problem{font-size:12px;line-height:22px;color:var(--muted);margin:24px 0 20px}
+.voyah-case .case-strip-change,.voyah-case .case-strip-response{font:500 16px/26px Alibaba,CaseStripSC,sans-serif;color:#455c4e}
+.voyah-case .case-strip-change-arrow{font:400 14px Noto,sans-serif;color:#91a59b}
+.voyah-case .case-strip-evidence{margin-top:26px}
+.voyah-case .case-strip-metric{display:flex;align-items:baseline;gap:8px;font:400 17px/26px Noto,CaseStripSC,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:0;color:#6c9496;white-space:nowrap;margin-top:2px}
+.voyah-case .case-strip-metric-arrow{font-size:14px;font-weight:400;letter-spacing:0}
+.voyah-case .case-strip-metric-label{font-size:10px;line-height:18px;color:var(--muted)}
+.voyah-case .case-strip-samples{font-size:9.5px;line-height:18px;color:#8b9088;margin-top:3px;font-variant-numeric:tabular-nums}
+.voyah-case .case-strip-trend{font-size:9.5px;line-height:18px;color:var(--teal);margin-top:12px}
+@media(min-width:761px) and (max-width:1100px){
+ .voyah-case .case-strip-grid{column-gap:32px}
+ .voyah-case .case-strip-item+.case-strip-item::before{left:-16px}
+ .voyah-case .case-strip-item h3{font-size:15px;line-height:24px}
+ .voyah-case .case-strip-change,.voyah-case .case-strip-response{font-size:14px;line-height:24px}
+ .voyah-case .case-strip-judgment{font-size:10px}
+ .voyah-case .case-strip-metric{font-size:14px;gap:7px}
+}
+@media(max-width:760px){
+ .voyah-case .voyah-case-strip{padding:72px 0 80px;margin-top:-72px}
+ .voyah-case .case-strip-grid{grid-template-columns:1fr;grid-template-rows:none;gap:24px}
+ .voyah-case .case-strip-item{display:flex;flex-direction:column;grid-row:auto}
+ .voyah-case .case-strip-item+.case-strip-item{padding-top:28px;border-top:1px solid #e6e9e3}
+ .voyah-case .case-strip-item+.case-strip-item::before{display:none}
+ .voyah-case .case-strip-problem{max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){.voyah-case .case-strip-number,.voyah-case .case-strip-item h3{transition:none}}

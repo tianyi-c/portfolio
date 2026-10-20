@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="面向古画图像学分析中候选解释难比较、史料分散与 AI 依据难追溯的问题，设计研究者主导的分析 Agent，通过动态研究上下文连接画面对象、候选解释、历史材料与多轮分析。">
+  <meta name="theme-color" content="#fafaf8">
+  <title>图像学可视分析 AI 辅助产品设计 · 陈天仪</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/Alibaba-Medium.ttf?v=detail-link-spacing-20261018" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/assets/fonts/NotoSansSC.ttf?v=detail-link-spacing-20261018" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="/style.css?v=detail-link-spacing-20261018">
+  <link rel="stylesheet" href="/motion.css?v=detail-link-spacing-20261018">
+  <script src="/app.js?v=detail-link-spacing-20261018" defer></script>
+  <script src="/motion.js?v=detail-link-spacing-20261018" defer></script>
+  <link rel="stylesheet" href="/portfolio.css?v=detail-link-spacing-20261018">
+<link rel="stylesheet" href="/site-header.css?v=sticky-header-1">
+<link rel="stylesheet" href="/paper-agent-demo.css?v=original-trim-3"><script src="/paper-agent-demo.js?v=original-trim-3" defer></script><link rel="stylesheet" href="/paper-case-study.css?v=validation-scale-6"><script src="/paper-case-study.js?v=story-2" defer></script><link rel="stylesheet" href="/paper-method.css?v=method-1"><link rel="stylesheet" href="/case-side-nav.css?v=agent-toc-1"><script src="/case-side-nav.js?v=agent-toc-1" defer></script><link rel="stylesheet" href="/case-section-marks.css?v=unified-1"></head>
+<body class="project-page agent-case paper-case"><a class="skip-link" href="#overview">跳到正文</a><svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="icon-note" viewBox="0 0 24 24"><path d="M5 3.7 14.7 3.2 18.8 7.4 19.2 20.4 5.1 21ZM2.6 6.1 3 18.9"/><path class="ink-fold" d="m14.7 3.2.2 4.5 3.9-.3"/><path class="ink-detail" d="M8 10.1 15.6 9.7M8.1 13.5 15.8 13.3M8.3 16.8 12.3 16.6"/></symbol>
+    <symbol id="icon-feedback" viewBox="0 0 24 24"><path d="M3.2 4.3 20.4 4 20.8 15.6 11.5 15.8 7.2 20.6 7.4 16 3.3 16ZM7 8.3h9.7M7 11.8h6"/></symbol>
+    <symbol id="icon-loop" viewBox="0 0 24 24"><path d="M5 7.1C7.6 2.3 15.8 1.9 19.1 8.3m0 0-.3-5m.3 5-4.8-1M19.2 16.7C15.6 22.2 7.6 21.2 4.3 15m0 0 .2 5m-.2-5 4.7 1"/></symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24"><path d="M12 5.4C8.6 3 4.4 3.7 2.6 4.8L3 20C6.1 18.9 9.1 19.3 12 21M12 5.4V21M5.6 8.7l3.6.5m-3.5 2.9 3.4.6"/><g class="book-leaf"><path d="M12 5.4C15.2 3.6 19 3.5 21.2 4.4L20.8 19.7C17.2 19 14.8 19.7 12 21"/><path class="ink-detail" d="M15 9.1l3.3-.7M15 12.6l3.2-.7"/></g></symbol>
+    <symbol id="icon-spark" viewBox="0 0 24 24"><path d="M12 1.8 14.5 9.4 21.8 12 14.4 14.6 12 22 9.4 14.5 2 12 9.5 9.3Z"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M3 6 21 5.6 21 18.6 3 19ZM3 6l9.1 6.5L21 5.6"/></symbol>
+    <symbol id="icon-folder" viewBox="0 0 24 24"><path d="M3.4 19V5.8q0-.6.6-.6l5.4-.2 2.1 2.6 7.8-.3q.8 0 .8.8v1.734M3.4 19l1.8-8.9L22 9.8l-1.9 9.1Z"/></symbol>
+    <symbol id="icon-frame" viewBox="0 0 24 24"><path d="M4.3 5.1 20.1 4.5 19.8 19.8 4 20.2Z"/><path class="ink-detail" d="m7 16.6 4.4-5.5 3.1 3.2 2.8-2.1M8.1 8.4h.1"/><path class="ink-fold" d="M1.5 8V2h6M16 22h6v-6"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M3 12h18m-6-5 6 5-6 5"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-11"/></symbol>
+    <symbol id="icon-sprout" viewBox="0 0 48 48">
+      <g class="sprout-left">
+        <path class="sprout-leaf sprout-nw" d="M24.000 24.000C24.000 14.059 15.941 6.000 6.000 6.000C6.000 15.941 14.059 24.000 24.000 24.000Z"/>
+        <path class="sprout-leaf sprout-sw" d="M24.000 24.000C14.059 24.000 6.000 32.059 6.000 42.000C15.941 42.000 24.000 33.941 24.000 24.000Z"/>
+      </g>
+      <g class="sprout-right">
+        <path class="sprout-leaf sprout-ne" d="M24.000 24.000C24.000 14.059 32.059 6.000 42.000 6.000C42.000 15.941 33.941 24.000 24.000 24.000Z"/>
+        <path class="sprout-leaf sprout-se" d="M24.000 24.000C33.941 24.000 42.000 32.059 42.000 42.000C32.059 42.000 24.000 33.941 24.000 24.000Z"/>
+      </g>
+    </symbol>
+  </defs></svg>
+  <header class="site-header">
+    <div class="nav-wrap"><a class="site-name" href="/#education"><svg class="icon site-sprout" viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-sprout"/></svg>个人主页</a>
+      <nav aria-label="页面导航"><a href="/#education">EDU</a><a href="/#experience" aria-current="page">WORKS</a></nav>
+    </div>
+  </header>
+
+  <main class="page-wrap case-page"><a class="case-back text-action" href="/#research">← 返回项目列表</a><header class="case-intro"><p class="case-kicker">研究生阶段 / HCI</p><h1>图像学可视分析 AI 辅助产品设计</h1><p class="meta accent">第一作者<span>2026.06 — 2026.10</span></p><p class="case-lead">面向古画图像学分析中候选解释难比较、史料分散与 AI 依据难追溯的问题，设计研究者主导的分析 Agent，通过动态研究上下文连接画面对象、候选解释、历史材料与多轮分析。</p><dl class="case-facts"><div><dt>nDCG@10</dt><dd>+32.4%</dd></div><div><dt>主观工作负荷</dt><dd>↓35%</dd></div><div><dt>SUS 可用性</dt><dd>↑16%</dd></div></dl></header><div class="paper-role" aria-label="我的工作与角色边界">
+  <h2>我的工作</h2>
+  <div><p>从研究建模到产品落地全流程负责，包括：<br>产品流程、信息架构、核心交互、视觉设计、Agent 协同机制、检索上下文设计、前端原型及实验验证。</p><p class="paper-fine">后端工程与模型服务由计算机同学协作完成。</p></div>
+</div>
+<div role="navigation" class="case-toc" aria-label="详情目录"><a href="#overview"><span>01</span>问题与任务</a><a href="#demo"><span>02</span>系统方案</a><a href="#mechanisms"><span>03</span>方法说明</a><a href="#validation"><span>04</span>效果与总结</a></div><section class="case-section" id="overview" aria-labelledby="case-overview"><div class="case-section-heading"><div class="paper-section-mark case-section-mark"><span class="case-mark-number">01</span><span class="case-mark-slash" aria-hidden="true"></span><div class="case-mark-copy"><span>问题与任务</span><strong>PROBLEM → TASK</strong></div></div><h2 id="case-overview">从研究问题到系统任务</h2></div><div class="case-section-body"><p>通过专家访谈与文献归纳，将图像学分析中的三类核心问题转化为对应的系统任务，并进一步组织为可持续推进的分析过程。</p>
+<figure class="paper-problem-task-map" aria-label="三个研究问题分别对应系统任务，再汇总为可回退、可重组的五步分析链">
+  <p class="paper-map-header paper-map-problem-header">研究问题</p>
+  <p class="paper-map-header paper-map-task-header">对应系统任务</p>
+  <p class="paper-map-header paper-map-chain-header">汇总为分析链</p>
+  <div class="paper-map-problem paper-map-row-1"><span class="paper-map-badge">P1</span><div><h3>解释难比较</h3><p>同一视觉对象可能对应多个候选文化解释，研究者需要结合当前作品与证据进一步判断。</p></div></div>
+  <div class="paper-map-task paper-map-row-1"><span class="paper-map-badge">T1</span><div><h3>候选解释并置比较</h3><p>从具体对象进入多个候选解释，支持对照比较与继续判断，而非直接给出单一结论。</p></div></div>
+  <div class="paper-map-problem paper-map-row-2"><span class="paper-map-badge">P2</span><div><h3>史料难组织</h3><p>相关材料分散在不同文献中，难以随当前分析对象与研究语境快速组织。</p></div></div>
+  <div class="paper-map-task paper-map-row-2"><span class="paper-map-badge">T2</span><div><h3>历史材料检索与证据组织</h3><p>根据当前画作、对象与候选解释组织相关材料，并支持筛选、加入与回看。</p></div></div>
+  <div class="paper-map-problem paper-map-row-3"><span class="paper-map-badge">P3</span><div><h3>AI 依据难追溯</h3><p>直接生成解释容易脱离原始材料，研究者难以回看分析所依据的证据。</p></div></div>
+  <div class="paper-map-task paper-map-row-3"><span class="paper-map-badge">T3</span><div><h3>基于证据的 AI 分析</h3><p>AI 继承当前研究状态，并基于研究者已选择的材料继续分析、追问与写作支持。</p></div></div>
+  <div class="paper-map-chain">
+    <svg class="paper-map-convergence" viewBox="0 0 50 330" preserveAspectRatio="none" aria-hidden="true"><path d="M0 31 C30 31 14 141 42 141 M0 141 H47 M0 251 C30 251 14 141 42 141"/><path class="paper-map-arrow-head" d="m42 137 5 4-5 4"/></svg>
+    <div class="paper-map-chain-content">
+      <ol class="paper-map-nodes" aria-label="可持续往返的分析链"><li>对象</li><li>候选解释</li><li>历史材料</li><li>证据判断</li><li>AI 分析</li></ol>
+      <svg class="paper-map-return" viewBox="0 0 500 30" preserveAspectRatio="none" aria-hidden="true"><path d="M25 3 V15 Q25 24 34 24 H466 Q475 24 475 15 V3"/><path d="m20 8 5-5 5 5 m440 0 5-5 5 5"/></svg>
+      <p>研究状态随选择持续更新，并支持返回前一步重新判断。</p>
+    </div>
+  </div>
+</figure>
+</div></section><section class="case-section paper-demo-section" id="demo" aria-labelledby="case-demo"><div class="case-section-heading"><div class="paper-section-mark case-section-mark"><span class="case-mark-number">02</span><span class="case-mark-slash" aria-hidden="true"></span><div class="case-mark-copy"><span>系统方案</span><strong>SYSTEM</strong></div></div><h2 id="case-demo">从分析任务到可交互研究工作区</h2></div><div class="case-section-body"><p>将对象选择、解释比较、材料筛选与 AI 分析整合在同一工作区中，使研究者能够围绕当前研究状态持续推进分析。</p>
+<ol class="paper-system-steps" aria-label="工作区三步操作链">
+  <li><div class="paper-system-step-title"><span>01</span><h3>选择对象并比较解释</h3></div><p>从画面中的具体对象进入分析，结合画面线索查看多个候选文化解释。</p></li>
+  <li><div class="paper-system-step-title"><span>02</span><h3>筛选并加入历史材料</h3></div><p>围绕当前对象与候选解释查看相关材料，并将有价值的证据加入当前分析。</p></li>
+  <li><div class="paper-system-step-title"><span>03</span><h3>基于当前证据继续分析</h3></div><p>AI 继承已选择的对象、解释与材料，支持继续提问、整理判断与写作。</p></li>
+</ol>
+<div class="paper-demo-actions">
+  <span>真实系统 · 《挥扇仕女图》</span>
+  <div>
+    <button type="button" class="paper-demo-fullscreen">全屏体验 <span aria-hidden="true">↗</span></button>
+    <a href="https://portfolio.17798200379.workers.dev/demos/hualunyanxi/painting/huishanshinvtu?portfolio=1" target="_blank" rel="noopener">独立打开 <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+<div class="paper-demo-stage">
+  <iframe class="paper-demo-frame" src="https://portfolio.17798200379.workers.dev/demos/hualunyanxi/painting/huishanshinvtu?portfolio=1" title="画论研析：图像学可视分析 Agent 真实系统" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+</div>
+<p class="paper-demo-mobile-note">建议使用大屏体验完整工作区，也可独立打开系统。</p>
+</div></section><section class="case-section" id="mechanisms" aria-labelledby="case-mechanisms"><div class="case-section-heading"><div class="paper-section-mark case-section-mark"><span class="case-mark-number">03</span><span class="case-mark-slash" aria-hidden="true"></span><div class="case-mark-copy"><span>方法说明</span><strong>METHOD</strong></div></div><h2 id="case-mechanisms">围绕当前研究状态组织材料与 AI 分析</h2></div><div class="case-section-body"><p>系统将当前作品、视觉对象与候选解释组织为分析上下文，并进一步用于历史材料排序与后续 AI 辅助分析。</p>
+<div class="paper-method-grid">
+  <article class="paper-method-column">
+    <h3><span class="paper-method-index">01</span>历史材料检索与排序</h3>
+    <p class="paper-method-lead">系统不只依据关键词检索材料，而是将当前作品、视觉对象与候选解释共同作为检索上下文，对历史材料进行重新排序。通过比较不同上下文构造方式，逐步加入与当前任务相关的信息，使材料展示优先级更贴近当前分析方向。</p>
+    <figure class="paper-ranking-flow" aria-label="四种检索条件的实验结果，箭头表示展示顺序而非严格累加关系">
+      <ol class="paper-ranking-conditions">
+        <li><span>01</span><strong>基础查询</strong><data value="0.5660">0.5660</data></li>
+        <li><span>02</span><strong>通用检索条件</strong><data value="0.6633">0.6633</data></li>
+        <li><span>03</span><strong>任务特定条件</strong><data value="0.7280">0.7280</data></li>
+        <li><span>04</span><strong>完整上下文</strong><data value="0.7491">0.7491</data></li>
+      </ol>
+      <figcaption class="paper-ranking-gain"><strong>+32.4%</strong><span>nDCG@10</span></figcaption>
+    </figure>
+    <dl class="paper-ranking-definitions">
+      <div><dt>基础查询</dt><dd>作品 + 对象 + 候选概念</dd></div>
+      <div><dt>通用检索条件</dt><dd>在基础查询上加入通用检索说明</dd></div>
+      <div><dt>任务特定条件</dt><dd>在基础查询上加入材料相关性准则</dd></div>
+      <div><dt>完整上下文</dt><dd>在任务特定条件上进一步加入候选概念说明</dd></div>
+    </dl>
+    <p class="paper-ranking-note">箭头仅表示实验条件的展示顺序；通用与任务特定条件均从基础查询分别构造。</p>
+    <p class="paper-method-result">完整上下文下，历史材料排序 nDCG@10 从 0.5660 提升至 0.7491，相较基础查询提升 32.4%。</p>
+  </article>
+  <article class="paper-method-column">
+    <h3><span class="paper-method-index">02</span>基于证据的 AI 辅助分析</h3>
+    <p class="paper-method-lead">研究者进一步选择与当前问题相关的画面线索与历史材料，并与当前分析上下文及具体问题共同构成 AI 分析上下文。当解释方向或所选证据发生变化时，后续 AI 分析也会随之更新。</p>
+    <figure class="paper-evidence-flow" aria-label="当前分析上下文、已选画面线索、已选历史材料与具体问题共同进入 AI 分析，支持后续核查、调整材料、追问与写作">
+      <ul class="paper-evidence-inputs">
+        <li><strong>当前分析上下文</strong><span>作品 · 对象 · 候选解释</span></li>
+        <li><strong>已选画面线索</strong></li>
+        <li><strong>已选历史材料</strong></li>
+        <li><strong>具体问题</strong></li>
+      </ul>
+      <svg class="paper-evidence-merge" viewBox="0 0 44 280" preserveAspectRatio="none" aria-hidden="true"><path d="M0 35 C27 35 12 140 38 140 M0 105 C23 105 19 140 38 140 M0 175 C23 175 19 140 38 140 M0 245 C27 245 12 140 38 140 M38 140 H43"/><path d="m38 136 5 4-5 4"/></svg>
+      <p class="paper-evidence-core">AI 分析</p>
+      <span class="paper-evidence-arrow" aria-hidden="true">→</span>
+      <ul class="paper-evidence-outputs"><li>继续核查</li><li>调整材料</li><li>继续追问</li><li>写作</li></ul>
+    </figure>
+    <p class="paper-method-result">AI 输出作为分析过程中的中间结果，研究者可据此继续核查材料、调整证据、追问或推进写作。</p>
+  </article>
+</div>
+</div></section><section class="case-section" id="validation" aria-labelledby="case-validation"><div class="case-section-heading"><div class="paper-section-mark case-section-mark"><span class="case-mark-number">04</span><span class="case-mark-slash" aria-hidden="true"></span><div class="case-mark-copy"><span>用户实验</span><strong>VALIDATION</strong></div></div><h2 id="case-validation">用户实验与效果验证</h2></div><div class="case-section-body"><p>采用被试内对照实验（n = 12），比较本系统与未包含当前关联机制的基线系统，评估其在分析负担与系统可用性上的差异。</p>
+<dl class="paper-validation-results"><div><dt>主观工作负荷<span>NASA-TLX</span><span class="paper-validation-change">51.38 → 33.22</span></dt><dd>↓35%</dd></div><div><dt>系统可用性<span>SUS</span><span class="paper-validation-change">67.50 → 78.13</span></dt><dd>↑16%</dd></div></dl>
+<div class="paper-validation-table"><table><caption>用户实验结果<span>均值 ± 标准差</span></caption><thead><tr><th scope="col">指标</th><th scope="col">基线系统</th><th scope="col">本系统</th><th scope="col">p 值</th></tr></thead><tbody><tr><th scope="row">NASA-TLX ↓</th><td>51.38 ± 15.46</td><td>33.22 ± 11.17</td><td>.002</td></tr><tr><th scope="row">SUS ↑</th><td>67.50 ± 12.57</td><td>78.13 ± 6.14</td><td>.023</td></tr></tbody></table><p class="paper-validation-note">两项指标均达到显著差异（p &lt; .05），表明在本次任务条件下，系统降低了研究者的主观工作负荷，并提升了整体可用性评价。</p></div>
+<div class="paper-project-closing"><p>用户实验结果进一步支持了前述设计：围绕对象、解释与历史材料组织研究状态，可以在保留研究者判断权的同时，降低分析过程中的操作与认知负担。</p><p class="paper-fine">Role｜负责研究问题建模、产品流程、信息架构、核心交互与视觉设计、Agent 协同机制、检索上下文设计、前端原型开发及实验验证；后端工程与模型服务由计算机同学协作完成。</p></div>
+</div></section><div class="case-end"><a href="/#research" class="text-action">← 返回项目列表</a><a class="text-action project-detail-link" href="/projects/soul-script/" aria-label="下一项目：心笺 Soul Script：心笺 Soul Script">下一项目：心笺 Soul Script <svg class="icon arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div></main><div id="link-preview" class="link-preview" role="tooltip" hidden>
+    <svg class="icon preview-illustration" aria-hidden="true" viewBox="0 0 24 24"></svg>
+    <div><p class="preview-title"></p><p class="preview-description"></p><span class="preview-meta"></span></div>
+  </div>
+  
+</body>
+</html>

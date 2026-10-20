@@ -1,0 +1,28 @@
+/* Use the portfolio palette while retaining the prototype's interaction layout. */
+.app-shell{
+ --font-ui:Noto,NotoSC,"Microsoft YaHei",sans-serif;
+ --font-reading:var(--font-ui);
+}
+.app-shell:not(.dark){
+ --bg-primary:#fafaf8;--bg-secondary:#f1f1ed;
+ --card-bg:#fffefc;--card-border:#e7e7e1;
+ --text-primary:#343631;--text-secondary:#61645f;--text-muted:#72756f;
+ --accent-primary:#007f91;--accent-secondary:#5f023e;
+ --paper:var(--bg-primary);--ink:var(--text-primary);--muted:var(--text-muted);
+ --card:var(--card-bg);--line:var(--card-border);--green:var(--accent-primary);
+ --nav-bg:#fafaf8f5;--echo-nav-bg:#fafaf8f5;--nav-border:#e7e7e1;--nav-muted:#72756f;
+ --button-bg:#007f91;--button-text:#fffefc;--hover-bg:#007f9108;
+ --graph-bg:#f3f3ee;--graph-panel:#fffefcf5;--graph-input:#f1f1ed;
+ --graph-line:#dadbd4;--graph-control-border:#dadbd4;--graph-control-ink:#61645f;
+ --graph-chip-bg:#f1f1ed;--graph-tooltip-bg:#fffefc;
+ --echo-bg:#fafaf8;--echo-trigger:#f0f3f0;--echo-card:#fffefc;--echo-border:#e7e7e1;
+ --echo-title:#343631;--echo-body:#61645f;--echo-secondary:#61645f;--echo-muted:#72756f;
+ --echo-accent:#007f91;--echo-violet:#5f023e;--echo-rule:#007f9120;--echo-photo:#f1f1ed;
+ --echo-button:#007f91;--echo-button-bg:#007f9108;
+ --capture-bg:#fafaf8;--capture-text:#343631;--capture-muted:#72756f;
+ --capture-title:#343631;--capture-action:#007f91;--capture-save:#007f91;
+ --capture-save-text:#fffefc;--capture-save-hover:#006d7c;
+}
+.app-shell .note-card{box-shadow:none;border-radius:8px}
+.app-shell .constellation-header h1{white-space:nowrap;font-size:18px;letter-spacing:0}
+.app-shell .constellation-actions{min-width:0}

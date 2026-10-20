@@ -1,0 +1,73 @@
+.public-detail{background:#302e3e;color:#eeedf3;}
+.public-detail .detail-text{white-space:pre-wrap;overflow-wrap:anywhere;}
+.public-detail-images{display:grid;gap:12px;margin:20px 0;}
+.public-detail-images img{width:100%;height:auto;border-radius:6px;}
+.public-detail .detail-foot{justify-content:space-between;}
+.public-detail .detail-source a{display:block;margin-top:8px;}
+
+.public-image-unavailable{display:block;font-size:12px;line-height:1.7;color:#bab6c7;padding:10px 0;}
+
+/* The star field owns the page. These rules are scoped to the graph and its read-only detail flow. */
+.constellation-screen{--graph-sheet-height:clamp(252px,31dvh,280px);--graph-floor:78px;}
+.constellation-screen .constellation-stage{inset:104px 0 104px;}
+.constellation-screen.has-selection .constellation-stage{top:96px;bottom:auto;height:63%;}
+.app-shell:is(:fullscreen,.expanded-graph) .constellation-screen .constellation-stage{inset:104px 0 104px;}
+.app-shell:is(:fullscreen,.expanded-graph) .constellation-screen.has-selection .constellation-stage{top:96px;bottom:auto;height:63%;}
+.constellation-screen .graph-library-link{padding:0;border:0;background:none;font:inherit;color:inherit;white-space:nowrap;}
+.constellation-screen .graph-library-link span{font-size:10px;opacity:.5;}
+.constellation-screen .keyword-rail{bottom:91px;padding:7px 16px;gap:7px;}
+.constellation-screen .keyword-rail>span{font-size:10px;color:#7e8387;}
+.constellation-screen .keyword-rail button{min-height:28px;padding:4px 10px;font-size:11px;background:#ffffff04;border-color:#ffffff0b;color:#b5babb;}
+.constellation-screen .keyword-rail button small{display:none;}
+.constellation-screen .keyword-rail button.active{border-color:#a4c9df55;color:#d6edf5;background:#aecedd0a;}
+.constellation-screen.has-selection .keyword-rail,.constellation-screen.has-selection .graph-gesture-hint,.constellation-screen.has-selection .graph-focus-banner{visibility:hidden;pointer-events:none;}
+.constellation-screen .constellation-tools{left:16px;bottom:147px;flex-direction:row;gap:7px;opacity:.55;}
+.constellation-screen .constellation-zoom{right:16px;bottom:147px;flex-direction:row;gap:7px;opacity:.55;}
+.constellation-screen .constellation-tools button,.constellation-screen .constellation-zoom button{width:29px;height:29px;font-size:17px;background:#101416a8;border-color:#ffffff12;}
+.constellation-screen .constellation-tools .icon{width:13px;height:13px;}
+.constellation-screen .constellation-tools button:last-child{font-size:12px;}
+.constellation-screen .constellation-tools:hover,.constellation-screen .constellation-zoom:hover{opacity:1;}
+.constellation-screen.has-selection .constellation-tools,.constellation-screen.has-selection .constellation-zoom{visibility:hidden;pointer-events:none;}
+.constellation-screen .graph-gesture-hint{bottom:186px;font-size:10px;letter-spacing:.3px;opacity:.5;}
+.constellation-screen .graph-gesture-hint.used{opacity:0;}
+.constellation-screen .constellation-list{top:126px;bottom:91px;border-color:#ffffff16;background:#111516f5;}
+.constellation-screen .constellation-list header{background:#111516;color:#d6d8d7;}
+.constellation-screen .graph-selection-sheet,
+.app-shell:is(:fullscreen,.expanded-graph) .constellation-screen .graph-selection-sheet{
+ position:absolute;left:12px;right:12px;top:auto;bottom:var(--graph-floor);width:auto;max-width:none;
+ height:var(--graph-sheet-height);min-height:0;max-height:none;overflow:hidden;box-sizing:border-box;
+ padding:13px 15px;display:grid;grid-template-rows:22px 42px minmax(0,1fr) 34px;row-gap:9px;
+ background:#101314f5;border:1px solid #ffffff14;border-radius:16px;backdrop-filter:blur(18px);
+ box-shadow:0 -8px 28px #0003;color:#d9dddc;
+}
+.graph-selection-sheet .sheet-heading{display:flex;align-items:center;gap:9px;min-width:0;font-size:11px;line-height:18px;color:#9ca5a4;}
+.graph-selection-sheet .sheet-heading>span{display:flex;align-items:center;gap:7px;white-space:nowrap;}
+.graph-selection-sheet .sheet-heading time{margin-left:auto;font-size:10px;color:#7c8484;white-space:nowrap;}
+.graph-selection-sheet .sheet-heading button{width:24px;height:24px;flex:none;padding:0;border:0;background:none;font:20px/1 var(--font-ui);color:#828b8a;}
+.graph-selection-sheet .sheet-heading button:hover{color:#e6eceb;}
+.graph-selection-sheet .sheet-excerpt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;overflow-wrap:anywhere;margin:0;padding:0;border:0;background:none;font:500 14px/21px var(--font-ui);text-align:left;color:#e7ebe9;white-space:normal;}
+.sheet-related{min-height:0;overflow:hidden;}
+.sheet-related h2{margin:0 0 4px;font:400 10px/15px var(--font-ui);letter-spacing:.08em;color:#798482;}
+.sheet-related .record-connections{display:grid;gap:0;margin:0;}
+.sheet-related .record-connections>button{display:flex;align-items:center;gap:8px;min-width:0;min-height:22px;padding:2px 0;border:0;background:none;color:#b6c0bc;text-align:left;}
+.connection-bullet{display:block;width:4px;height:4px;flex:none;border:1px solid #869c96;border-radius:50%;}
+.sheet-related .record-connections p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden;overflow-wrap:anywhere;min-width:0;margin:0;font:400 12px/19px var(--font-ui);}
+.sheet-related .record-connections>button:hover{color:#def0eb;}
+.graph-selection-sheet .sheet-actions{display:grid;grid-template-columns:1fr 1.22fr;gap:10px;}
+.graph-selection-sheet .sheet-actions>button{display:flex;align-items:center;justify-content:center;gap:6px;min-width:0;border:1px solid #ffffff15;border-radius:7px;background:#ffffff09;padding:0 8px;font:400 12px/18px var(--font-ui);color:#dfe5e2;}
+.graph-selection-sheet .sheet-actions>button:last-child{background:none;border-color:transparent;color:#a3bab1;}
+.graph-selection-sheet .sheet-actions>button:hover{background:#ffffff12;}
+.graph-selection-sheet .sheet-actions .icon{width:13px;height:13px;}
+.detail-related{margin-top:25px;}
+.detail-related h2{font:500 13px/20px var(--font-ui);color:#c3d0cd;margin:0 0 8px;}
+.detail-related .record-connections{display:grid;gap:0;}
+.detail-related .record-connections>button{display:flex;align-items:flex-start;gap:10px;padding:13px 0;text-align:left;border:0;border-top:1px solid #ffffff12;background:none;color:#d4dcd8;}
+.detail-related .connection-bullet{margin-top:8px;}
+.detail-related .record-connections p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;margin:0;font:400 13px/21px var(--font-ui);}
+@media(max-height:720px){
+ .constellation-screen{--graph-floor:70px;--graph-sheet-height:246px;}
+ .constellation-screen .constellation-stage{top:96px;bottom:91px;}
+ .constellation-screen .keyword-rail{bottom:79px;}
+ .constellation-screen .constellation-tools,.constellation-screen .constellation-zoom{bottom:124px;}
+ .constellation-screen .graph-gesture-hint{bottom:160px;}
+}

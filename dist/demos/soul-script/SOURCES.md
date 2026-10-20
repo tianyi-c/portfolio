@@ -1,0 +1,1 @@
+UI, Three.js/D3 vendor files and public poetry: E:/fuke/soul-script-rebuild. Vendor license notices retained. Public graph: project imported public Bluesky corpus + existing precomputed connections. Browser adapter: portfolio-only, no live model API, no personal store, credentials, models or backend files copied.

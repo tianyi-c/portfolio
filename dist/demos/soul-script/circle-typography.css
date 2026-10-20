@@ -1,0 +1,22 @@
+/* The public collection uses the same reading rhythm as Echo's history cards. */
+.app-shell .circle-content{padding:14px var(--page-gutter) 24px}
+.app-shell .circle-content .post{padding:22px 20px 0;margin-bottom:16px}
+.app-shell .circle-content .post>p{
+ font-family:var(--font-ui);font-size:13px;font-weight:400;line-height:23px;
+ letter-spacing:.05px;font-style:normal;white-space:pre-wrap;overflow-wrap:anywhere;
+ margin:22px 0 24px;
+}
+.app-shell .circle-content :is(.post-author,.post-time){
+ font-size:10px;font-weight:400;line-height:18px;letter-spacing:0;
+}
+.app-shell .circle-content .post-bottom{
+ border-top:1px solid var(--echo-rule);min-height:66px;padding:9px 0 13px;
+ font-size:var(--font-meta);font-weight:400;line-height:var(--line-meta);letter-spacing:0;
+}
+.app-shell .circle-content .post-bottom :is(button,a,.post-source){
+ font-size:var(--font-meta);font-weight:400;line-height:var(--line-meta);letter-spacing:0;
+}
+@media(max-width:360px){
+ .app-shell .circle-content .post{padding:18px 16px 0}
+ .app-shell .circle-content .post>p{font-size:12.5px}
+}

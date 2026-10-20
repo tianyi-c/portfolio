@@ -1,0 +1,22 @@
+/* A quiet supporting section; all styles are confined to #ota. */
+@font-face{font-family:VersionFollowSC;src:url('/assets/fonts/NotoSansSC.ttf?v=version-follow-up-1') format('truetype');font-weight:100 900;font-display:swap}
+.voyah-case #ota{font-family:Noto,VersionFollowSC,sans-serif}
+.voyah-case #ota .case-section-heading h2,.voyah-case #ota .voyah-mark-copy>span{font-family:Alibaba,VersionFollowSC,sans-serif}
+.voyah-case #ota .case-section-heading h2{margin-top:36px}
+.voyah-case #ota .ota-follow-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px;list-style:none;margin:40px 0 0;padding:0}
+.voyah-case #ota .ota-follow-steps>li{position:relative;min-width:0}
+.voyah-case #ota .ota-follow-steps>li:not(:last-child)::after{content:'→';position:absolute;right:-31px;top:33px;font:400 15px/24px Noto,sans-serif;color:#b3c3bb}
+.voyah-case #ota .ota-follow-step-heading{display:flex;align-items:baseline;gap:9px}
+.voyah-case #ota .ota-follow-step-heading>span{font:400 10px/20px Noto,sans-serif;color:#9bb5aa}
+.voyah-case #ota .ota-follow-step-heading h3{font:500 14px/24px Alibaba,VersionFollowSC,sans-serif;color:var(--ink);margin:0}
+.voyah-case #ota .ota-follow-steps li>p{font-size:12px;line-height:22px;color:var(--muted);margin-top:10px}
+.voyah-case #ota .ota-follow-active .ota-follow-step-heading>span{color:#6c9484}
+.voyah-case #ota .ota-follow-active .ota-follow-step-heading h3{color:#527365}
+.voyah-case #ota .case-section-body>.ota-follow-summary{font-size:12px;line-height:22px;color:#68796e;margin-top:22px}
+@media(min-width:761px) and (max-width:1100px){.voyah-case #ota .ota-follow-steps{gap:30px}.voyah-case #ota .ota-follow-steps>li:not(:last-child)::after{right:-23px}}
+@media(max-width:760px){
+ .voyah-case #ota .ota-follow-steps{grid-template-columns:1fr;gap:20px;margin-top:24px}
+ .voyah-case #ota .ota-follow-steps>li:not(:last-child)::after{display:none}
+ .voyah-case #ota .ota-follow-steps li>p{margin-top:5px;padding-left:25px}
+ .voyah-case #ota .case-section-body>.ota-follow-summary{margin-top:24px}
+}

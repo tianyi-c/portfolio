@@ -1,0 +1,4 @@
+.demo-notice{position:fixed;inset:0 0 auto;height:28px;z-index:200;display:flex;align-items:center;justify-content:center;background:#f2efe7;color:#657060;font:11px/18px sans-serif;border-bottom:1px solid #deded4}
+.desktop-scene{display:none!important}
+body{margin:0!important;background:#f2efe7!important;min-height:100dvh}
+.app-shell{width:min(100%,430px)!important;height:calc(100dvh - 28px)!important;min-height:0!important;margin:28px auto 0!important;box-shadow:none!important;border-radius:0!important}

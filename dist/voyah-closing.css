@@ -1,0 +1,28 @@
+/* Only the closing education/boundary sections and their native modal. */
+@font-face{font-family:VoyahClosingSC;src:url('/assets/fonts/NotoSansSC.ttf?v=closing-1') format('truetype');font-weight:100 900;font-display:swap}
+.voyah-case :is(#education,#reflection){font-family:Noto,VoyahClosingSC,sans-serif}
+.voyah-case :is(#education,#reflection) .case-section-heading h2,.voyah-case :is(#education,#reflection) .voyah-mark-copy>span{font-family:Alibaba,VoyahClosingSC,sans-serif}
+.voyah-case #education{margin-bottom:96px}
+.voyah-case #education .case-section-body>.feature-education-outcomes{font-size:12px;line-height:22px;color:var(--muted);margin-top:16px}
+.voyah-case #education .feature-education-heading-row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;margin-top:20px}
+.voyah-case #education .feature-education-heading-row h2{margin:0}
+.voyah-case #education .feature-examples-trigger{appearance:none;display:inline-flex;align-items:center;flex:none;gap:8px;padding:0;margin:0;border:0;background:transparent;font:400 12px/22px Noto,VoyahClosingSC,sans-serif;color:var(--teal);cursor:pointer;text-align:left;white-space:nowrap;transition:color 160ms ease}
+.voyah-case #education .feature-examples-trigger>span{display:inline-block;transition:transform 160ms ease}
+.voyah-case #education .feature-examples-trigger:is(:hover,:focus-visible){color:#426c65}
+.voyah-case #education .feature-examples-trigger:is(:hover,:focus-visible)>span{transform:translateX(3px)}
+.voyah-case #education .feature-examples-trigger:focus-visible,.voyah-case #education .feature-examples-close:focus-visible{outline:1px solid #9aada2;outline-offset:5px}
+.voyah-case #reflection{margin-bottom:64px}
+.voyah-case #education .feature-examples-dialog{box-sizing:border-box;width:min(580px,calc(100vw - 48px));max-width:none;max-height:calc(100dvh - 64px);margin:auto;padding:28px 32px;border:1px solid #e0e5dd;border-radius:4px;background:var(--bg);color:var(--body);font-family:Noto,VoyahClosingSC,sans-serif;box-shadow:0 12px 50px #253d3012;overflow:auto}
+.voyah-case #education .feature-examples-dialog::backdrop{background:#293c343b}
+.voyah-case #education .feature-examples-header{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.voyah-case #education .feature-examples-header h3{font:500 17px/26px Alibaba,VoyahClosingSC,sans-serif;color:var(--ink);margin:0}
+.voyah-case #education .feature-examples-close{appearance:none;display:inline-flex;align-items:center;gap:8px;padding:4px 0;border:0;background:none;color:var(--muted);font:400 11px/20px Noto,VoyahClosingSC,sans-serif;cursor:pointer}
+.voyah-case #education .feature-examples-close>span{font-size:18px}
+.voyah-case #education .feature-examples-content{padding:32px 0 12px}
+.voyah-case #education .feature-examples-content>p{font-size:13px;line-height:24px;color:var(--muted)}
+@media(max-width:760px){
+ .voyah-case #education{margin-bottom:88px}
+ .voyah-case #education .feature-education-outcomes{max-width:100%}
+ .voyah-case #education .feature-examples-dialog{padding:24px;max-height:calc(100dvh - 48px)}
+}
+@media(prefers-reduced-motion:reduce){.voyah-case #education .feature-examples-trigger,.voyah-case #education .feature-examples-trigger>span{transition:none}}

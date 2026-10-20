@@ -1,0 +1,69 @@
+/* Four search-page levels: title 20, section 14, reading 13, metadata 11. */
+.app-shell .discovery-screen{
+ --search-title:20px;--search-section:14px;--search-copy:13px;--search-meta:11px;
+ padding-bottom:32px;
+}
+.app-shell .discovery-screen .feature-header{
+ padding:28px var(--page-gutter) 20px;gap:12px;align-items:flex-start;
+ border-bottom:0;background:transparent;
+}
+.app-shell .discovery-screen .feature-header>.icon-btn{width:32px;height:32px;margin-left:-6px;color:var(--text-secondary)}
+.app-shell .discovery-screen .feature-header>.icon-btn .icon{width:19px;height:19px}
+.app-shell .discovery-screen .page-title{font-size:var(--search-title);line-height:28px;font-weight:600;letter-spacing:0}
+.app-shell .discovery-screen .feature-header p{font-size:var(--search-meta);line-height:20px;font-weight:400;margin-top:4px;color:var(--text-muted)}
+.app-shell .discovery-content{padding:0 var(--page-gutter) 32px}
+.app-shell .discovery-screen .discovery-input{
+ min-height:46px;padding:0 14px;gap:10px;border-radius:12px;
+ background:var(--card);border:1px solid var(--line);
+ transition:border-color 220ms ease-out;
+}
+.app-shell .discovery-screen .discovery-input>.icon{width:17px;height:17px}
+.app-shell .discovery-screen .discovery-input input{
+ font-family:var(--font-ui);font-size:var(--search-copy);line-height:23px;
+ font-weight:400;letter-spacing:0;padding:11px 0;caret-color:var(--text-primary);
+}
+.app-shell .discovery-screen .discovery-input input::placeholder{color:var(--text-muted);opacity:1}
+.app-shell .discovery-input input:focus-visible{outline:none}
+.app-shell .discovery-input:focus-within{border-color:var(--text-muted)}
+.app-shell .discovery-screen .discovery-input>button{font-size:20px;font-weight:400;width:24px;min-height:32px}
+.app-shell .discovery-screen .search-scopes{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;
+ margin:16px 0 28px;border-bottom:1px solid var(--line);
+}
+.app-shell .discovery-screen .search-scopes button{
+ position:relative;min-height:42px;padding:8px 0 12px;border:0;border-radius:0;
+ background:transparent;color:var(--text-muted);font-size:var(--search-copy);
+ line-height:22px;font-weight:400;letter-spacing:0;
+ transition:color 220ms ease-out;
+}
+.app-shell .discovery-screen .search-scopes button.active{color:var(--text-primary);background:transparent}
+.app-shell .discovery-screen .search-scopes button::after{
+ content:"";position:absolute;bottom:-1px;left:24%;right:24%;height:1px;
+ background:currentColor;opacity:0;transition:opacity 220ms ease-out;
+}
+.app-shell .discovery-screen .search-scopes button.active::after{opacity:1}
+.app-shell .discovery-screen .search-scopes button:hover{color:var(--text-primary)}
+.app-shell .discovery-screen .discovery-result-title{margin:0 0 14px;align-items:baseline}
+.app-shell .discovery-screen :is(.discovery-result-title h2,.discovery-empty h2){font-size:var(--search-section);line-height:24px;font-weight:500}
+.app-shell .discovery-screen :is(.discovery-result-title>span,.card-foot,.post-author,.post-time){font-size:var(--search-meta);line-height:18px;font-weight:400;letter-spacing:0;color:var(--text-muted)}
+.app-shell .discovery-screen .search-note-list{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.app-shell .discovery-screen .search-note-list .note-card{
+ border:1px solid var(--line);border-radius:12px;box-shadow:none;background:var(--card);
+}
+.app-shell .discovery-screen .search-note-list .note-copy{padding:18px 16px 16px}
+.app-shell .discovery-screen .search-note-list .note-card p,
+.app-shell .discovery-screen .post>p{
+ font-family:var(--font-ui);font-size:var(--search-copy);font-weight:400;line-height:23px;
+ letter-spacing:.05px;font-style:normal;color:var(--text-primary);
+}
+.app-shell .discovery-screen .search-note-list .note-card p{margin:0 0 16px}
+.app-shell .discovery-screen .card-foot{gap:12px}
+.app-shell .discovery-screen .post{padding:22px 20px 0;margin-bottom:12px;border:1px solid var(--line);border-radius:12px;box-shadow:none}
+.app-shell .discovery-screen .post>p{margin:22px 0 24px}
+.app-shell .discovery-screen .post-bottom{border-top:1px solid var(--echo-rule);min-height:60px;padding:8px 0 12px}
+.app-shell .discovery-screen .post-bottom :is(button,a,.post-source){font-size:var(--search-copy);line-height:23px;font-weight:400;letter-spacing:0}
+.app-shell .discovery-screen .discovery-empty{padding:48px 16px 32px}
+.app-shell .discovery-screen .discovery-empty>span{margin-bottom:16px}
+.app-shell .discovery-screen .discovery-empty h2{margin-bottom:8px}
+.app-shell .discovery-screen :is(.discovery-empty p,.loading){font-size:var(--search-copy);line-height:23px;font-weight:400}
+@media(prefers-reduced-motion:reduce){.app-shell .discovery-screen *{transition:none!important}}

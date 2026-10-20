@@ -1,0 +1,91 @@
+/* Scoped to section 03. Quadrants encode judgment; dots encode issue status. */
+@font-face{font-family:PrioritySC;src:url('/assets/fonts/NotoSansSC.ttf?v=priority-excel-2') format('truetype');font-weight:100 900;font-display:swap}
+.voyah-case #workflow{font-family:Noto,PrioritySC,sans-serif;--priority-green:#668474;--priority-warm:#b1a496}
+.voyah-case #workflow :is(.case-section-heading h2,.voyah-mark-copy>span,.priority-responses h3){font-family:Alibaba,PrioritySC,sans-serif}
+.voyah-case #workflow .priority-prose{width:100%;max-width:none}
+.voyah-case #workflow .priority-layout{--priority-layout-width:min(1180px,calc(100vw - 400px));position:relative;left:50%;transform:translateX(-50%);width:var(--priority-layout-width);display:grid;grid-template-columns:minmax(0,64fr) minmax(0,30fr);column-gap:6%;margin-top:44px;align-items:start}
+.voyah-case #workflow .priority-figure{min-width:0;margin:0;width:calc(100% - max(0px, (var(--priority-layout-width) - var(--page-width)) / 2));justify-self:end}
+.voyah-case #workflow .priority-figure figcaption{margin-bottom:8px;align-items:center;gap:8px}
+.voyah-case #workflow .priority-caption-title{font-size:12px;color:var(--ink);margin:0;white-space:nowrap}
+.voyah-case #workflow .priority-caption-title strong{font:500 18px/26px Alibaba,PrioritySC,sans-serif;color:var(--teal);margin-right:5px}
+.voyah-case #workflow .priority-figure figcaption>span:last-child{font-size:10px}
+.voyah-case #workflow .priority-map-wrap{position:relative}
+.voyah-case #workflow .priority-map-scroll{overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.voyah-case #workflow .priority-map{display:block;width:100%;height:auto;overflow:visible;font-family:AlibabaRegular,PrioritySC,sans-serif}
+.voyah-case #workflow .priority-axis{stroke:#c2ccc5;stroke-width:.75;fill:none}
+.voyah-case #workflow .priority-divider{stroke:#d9dfda;stroke-width:.6;stroke-dasharray:2 5;fill:none}
+.voyah-case #workflow .quadrant-focus{fill:#eaf1ed}
+.voyah-case #workflow .quadrant-optimize{fill:#f3f6f4}
+.voyah-case #workflow .quadrant-longterm{fill:#f4f1eb;fill-opacity:.75}
+.voyah-case #workflow .quadrant-observe{fill:#fafaf8}
+.voyah-case #workflow .priority-axis-title{font-size:12px;fill:var(--ink)}
+.voyah-case #workflow .priority-axis-detail{font-size:10px;fill:var(--muted)}
+.voyah-case #workflow .priority-extreme{font-size:10px;fill:#969c96}
+.voyah-case #workflow .priority-region{font-size:11px;fill:#959b94}
+.voyah-case #workflow .region-focus{fill:#536d5e;font-weight:500;font-size:12px}
+.voyah-case #workflow .priority-region-action{fill:var(--teal)}
+.voyah-case #workflow .priority-label-lines path{fill:none;stroke:#b9c4bc;stroke-width:.45;opacity:.5;pointer-events:none}
+.voyah-case #workflow .priority-hit{fill:transparent;stroke:none}
+.voyah-case #workflow .priority-dot{fill:#9cb1b7;fill-opacity:.4}
+.voyah-case #workflow .is-priority .priority-dot{fill:#5a7e80;fill-opacity:.7}
+.voyah-case #workflow .is-longterm .priority-dot{fill:var(--priority-warm);fill-opacity:.7}
+.voyah-case #workflow .is-response .priority-dot{fill:#728d7d;fill-opacity:.72}
+.voyah-case #workflow .is-response .priority-hit{r:6px}
+.voyah-case #workflow .priority-ring{fill:none;stroke:var(--priority-green);stroke-width:1.1}
+.voyah-case #workflow .priority-point{outline:none;cursor:help}
+.voyah-case #workflow .priority-labels{pointer-events:none}
+.voyah-case #workflow .priority-point-label{font-size:10.8px;fill:#657068;paint-order:stroke;stroke:var(--bg);stroke-opacity:.85;stroke-width:2;stroke-linejoin:round}
+.voyah-case #workflow .priority-trend{font:500 9px Noto,sans-serif;fill:var(--teal);paint-order:stroke;stroke:var(--bg);stroke-width:3}
+.voyah-case #workflow .priority-point:is(:hover,:focus) .priority-dot{fill-opacity:.85}
+.voyah-case #workflow .priority-point:focus-visible .priority-hit{stroke:var(--teal);stroke-width:.8;stroke-dasharray:2 3}
+.voyah-case #workflow .priority-legend{display:grid;grid-template-columns:repeat(2,max-content);justify-content:center;gap:7px 20px;font-size:10px;color:var(--muted);line-height:18px;margin-top:8px}
+.voyah-case #workflow .priority-legend>span{display:inline-flex;align-items:center;gap:7px}
+.voyah-case #workflow .priority-legend i{display:block;width:5px;height:5px;border-radius:50%;background:#9cb1b766}
+.voyah-case #workflow .priority-legend .legend-response{width:9px;height:9px;background:transparent;border:1px solid var(--priority-green);position:relative}
+.voyah-case #workflow .legend-response::after{content:'';position:absolute;inset:2px;border-radius:50%;background:var(--priority-green)}
+.voyah-case #workflow .priority-legend .legend-priority{background:#5a7e80b3}
+.voyah-case #workflow .priority-legend .legend-longterm{background:var(--priority-warm)}
+.voyah-case #workflow .priority-map-note{font-size:10px;line-height:18px;color:var(--muted);margin-top:12px;text-align:center}
+.voyah-case #workflow .priority-scroll-hint{display:none}
+.voyah-case #workflow .priority-responses{padding-top:5px;min-width:0}
+.voyah-case #workflow .priority-outcome-kicker{font-size:9px;line-height:18px;letter-spacing:.12em;color:var(--priority-green)}
+.voyah-case #workflow .priority-responses h3{font-size:14px;line-height:23px;font-weight:500;margin:6px 0 8px;max-width:240px}
+.voyah-case #workflow .priority-responses h3 em{font-style:normal;color:var(--priority-green)}
+.voyah-case #workflow .priority-responses header>p{font-size:10.5px;line-height:18px;color:var(--muted);max-width:270px}
+.voyah-case #workflow .priority-responses ol{display:grid;grid-template-columns:1fr;gap:0;list-style:none;margin:14px 0 0;padding:0}
+.voyah-case #workflow .priority-responses li{display:grid;grid-template-columns:18px minmax(0,1fr);column-gap:8px;padding:9px 0;border-top:1px solid #e8ebe6;font-size:11px;line-height:18px;min-width:0}
+.voyah-case #workflow .priority-response-number{font:400 10px/18px Noto,sans-serif;color:#8aaba1}
+.voyah-case #workflow .priority-response-problem{color:#62685f}
+.voyah-case #workflow .priority-response-result{color:var(--priority-green);margin-top:3px}
+.voyah-case #workflow .priority-responses li>.priority-response-result{margin-top:0}
+.voyah-case #workflow .priority-responses .priority-legend{justify-content:start;margin-top:20px;gap:6px 16px}
+.voyah-case #workflow .priority-responses .priority-map-note{text-align:left;margin-top:10px}
+.voyah-case #workflow .priority-response-result b{font-weight:400;color:var(--priority-green)}
+.voyah-case #workflow .priority-summary{margin:16px auto 0!important;max-width:100%;font-size:11px!important;line-height:20px!important;color:var(--body)}
+.voyah-case #workflow .priority-summary strong{font-weight:500;color:var(--teal)}
+.voyah-case #workflow .priority-summary .priority-green{color:var(--priority-green)}
+.voyah-case #workflow .priority-tooltip{position:absolute;z-index:10;box-sizing:border-box;max-width:min(244px,calc(100vw - 64px));width:244px;padding:10px 12px;border:1px solid #e4e8e1;border-radius:3px;background:#fcfcfa;box-shadow:0 2px 8px #243c3108;font-size:10.5px;line-height:17.5px;pointer-events:none;color:var(--body);animation:priority-tooltip-in 140ms ease-out}
+.voyah-case #workflow .priority-tooltip[hidden]{display:none}
+.voyah-case #workflow .priority-tooltip strong{display:block;color:var(--ink);font-weight:500;font-size:11.5px;line-height:19px}
+.voyah-case #workflow .priority-tooltip span{display:block}
+.voyah-case #workflow .tooltip-problem{margin:7px 0}
+.voyah-case #workflow .tooltip-response{margin-top:6px;color:var(--priority-green)}
+.voyah-case #workflow .tooltip-trend{font-size:10px;color:var(--teal);margin-top:6px}
+@keyframes priority-tooltip-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.voyah-case #workflow .priority-tooltip{animation:none}}
+@media(min-width:1101px) and (max-width:1359px){.voyah-case #workflow .priority-layout{--priority-layout-width:calc(100vw - 96px)}}
+@media(max-width:1100px){
+ .voyah-case #workflow .priority-layout{left:auto;transform:none;width:100%;grid-template-columns:1fr;gap:28px}
+ .voyah-case #workflow .priority-figure{width:100%}
+ .voyah-case #workflow .priority-responses{padding-top:18px;border-top:1px solid var(--line)}
+ .voyah-case #workflow .priority-responses h3,.voyah-case #workflow .priority-responses header>p{max-width:none}
+ .voyah-case #workflow .priority-responses ol{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+ .voyah-case #workflow .priority-map{min-width:680px}
+ .voyah-case #workflow .priority-figure figcaption{display:flex;flex-wrap:wrap;gap:4px 16px}
+ .voyah-case #workflow .priority-legend{justify-content:start;gap:8px 15px;font-size:9.5px}
+ .voyah-case #workflow .priority-map-note{text-align:left}
+ .voyah-case #workflow .priority-scroll-hint{display:block;margin-top:4px}
+ .voyah-case #workflow .priority-responses ol{gap:0 20px}
+}

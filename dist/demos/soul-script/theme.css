@@ -1,0 +1,169 @@
+/* One theme scope: the existing .app-shell / .dark preference. Legacy names are aliases. */
+.app-shell{
+ --font-page-title:28px;--font-section-title:17px;--font-card-body:18px;--font-meta:13px;
+ --weight-page-title:700;--weight-section-title:600;--weight-card-body:500;--weight-meta:400;
+ --line-page-title:1.15;--line-section-title:1.4;--line-card-body:1.65;--line-meta:1.55;
+ --page-gutter:20px;--page-top:28px;--page-heading-gap:24px;
+ --bg-card:var(--card-bg);--border-subtle:var(--card-border);
+ color-scheme:light;
+ --bg-primary:#f2efe7;--bg-secondary:#e7e3d9;--card-bg:#f7f4ed;--card-border:#d4d0c5;
+ --text-primary:#2e302d;--text-secondary:#60645e;--text-muted:#707269;
+ --accent-primary:#4b7059;--accent-secondary:#786489;
+ --nav-bg:#f9f7f1ed;--nav-border:#dedbd2b3;--nav-muted:#787e74;
+ --button-bg:#303c33;--button-text:#f6f5ef;--hover-bg:#4c5e4810;
+ --paper:var(--bg-primary);--ink:var(--text-primary);--muted:var(--text-muted);--card:var(--card-bg);--line:var(--card-border);--green:var(--accent-primary);
+ --graph-bg:#e8e4da;--graph-panel:#f6f3ebf5;--graph-input:#e6e1d6d9;--graph-line:#c5bfb2;
+ --graph-control-border:#bdb8ab;--graph-control-ink:#565e54;--graph-chip-bg:#e1ddd34d;--graph-tooltip-bg:#f6f3eb;
+ --echo-bg:var(--bg-primary);--echo-trigger:#e8e8dd;--echo-card:#f4f1e9;--echo-border:#d6d7ca;
+ --echo-title:#2d342d;--echo-body:#3d453c;--echo-secondary:#65705f;--echo-muted:#737d6b;
+ --echo-accent:#4b7059;--echo-violet:#786489;--echo-rule:#899b782d;--echo-photo:#e8e9df;
+ --echo-button:#365b43;--echo-button-bg:#e4e9dc;--echo-nav-bg:var(--nav-bg);
+ --capture-bg:var(--bg-primary);--capture-text:var(--text-primary);--capture-muted:var(--text-muted);
+ --capture-title:#596352;--capture-action:#4e614a;--capture-save:#354735;--capture-save-text:#f7f5ef;--capture-save-hover:#425b43;
+}
+.app-shell.dark{
+ color-scheme:dark;
+ --bg-primary:#090908;--bg-secondary:#1b1a17;--card-bg:#292624;--card-border:#3b3733;
+ --text-primary:#e6e5e3;--text-secondary:#c1bbb3;--text-muted:#a29c96;
+ --accent-primary:#9ecbb4;--accent-secondary:#b4a8cf;
+ --nav-bg:#262320ed;--nav-border:#ffffff0c;--nav-muted:#9b958e;
+ --button-bg:#f1efeb;--button-text:#292725;--hover-bg:#ffffff09;
+ --paper:var(--bg-primary);--ink:var(--text-primary);--muted:var(--text-muted);--card:var(--card-bg);--line:var(--card-border);--green:var(--accent-primary);
+ --graph-bg:#030404;--graph-panel:#101314f5;--graph-input:#101012;--graph-line:#ffffff14;
+ --echo-bg:#0c0d0c;--echo-trigger:#20221f;--echo-card:#1b1c1b;--echo-border:#c8d4bb10;
+ --echo-title:#eeece5;--echo-body:#dbd9d3;--echo-secondary:#9a9d95;--echo-muted:#81867c;
+ --echo-accent:#a0b5a1;--echo-violet:#a79fb4;--echo-rule:#d0d4c80c;--echo-photo:#161815;
+ --echo-button:#c3cebc;--echo-button-bg:transparent;--echo-nav-bg:#121411f2;
+ --graph-control-border:#ffffff12;--graph-control-ink:#c1cee4;--graph-chip-bg:#ffffff04;--graph-tooltip-bg:#0f1826e8;
+ --capture-bg:#111312;--capture-text:#e8e5df;--capture-muted:#858b86;
+ --capture-title:#c7cbc5;--capture-action:#becbb5;--capture-save:#e9e8e1;--capture-save-text:#262b25;--capture-save-hover:#fffdf6;
+}
+/* Navigation follows the same preference on every page, including graph and Echo. */
+.app-shell:has(.echo-screen){--nav-bg:var(--echo-nav-bg)}
+/* Use a separate base token to avoid a custom-property cycle in the light Echo nav. */
+.app-shell:not(.dark){--echo-nav-bg:#f9f7f1ed}
+.app-shell .bottom-nav{background:var(--nav-bg);border-color:var(--nav-border);color:var(--nav-muted)}
+.app-shell .bottom-nav button{color:var(--nav-muted)}
+.app-shell .bottom-nav button.active{color:var(--text-primary)}
+.app-shell .bottom-nav button.create{background:var(--button-bg);color:var(--button-text);border-color:color-mix(in srgb,var(--text-primary) 40%,var(--bg-primary))}
+.app-shell .primary{background:var(--button-bg);color:var(--button-text)}
+/* The notebook had a fixed dark canvas despite sharing the existing theme state. */
+.app-shell .full-screen.capture-notebook{background:var(--capture-bg);color:var(--capture-text)}
+.app-shell .capture-notebook .capture-top>span{color:var(--capture-title)}
+.app-shell .capture-notebook .capture-top .icon-btn,.app-shell .capture-notebook .capture-tools button{color:var(--capture-muted)}
+.app-shell .capture-notebook .capture-page-input{color:var(--capture-text);caret-color:var(--accent-primary)}
+.app-shell .capture-notebook .capture-page-input::placeholder{color:var(--capture-muted)}
+.app-shell .capture-notebook .capture-context,.app-shell .capture-notebook .capture-question-content p{color:var(--capture-title)}
+.app-shell .capture-notebook .capture-context button,.app-shell .capture-notebook .capture-question summary,.app-shell .capture-notebook .capture-attachment>span,.app-shell .capture-notebook .capture-attachment button{color:var(--capture-muted)}
+.app-shell .capture-notebook .capture-question-content button{color:var(--capture-action)}
+.app-shell .capture-notebook .capture-toolbar{background:var(--capture-bg)}
+.app-shell .capture-notebook .capture-save{background:var(--capture-save);color:var(--capture-save-text)}
+.app-shell .capture-notebook .capture-save:not(:disabled):hover{background:var(--capture-save-hover)}
+/* Graph DOM keeps the current geometry and layout. Dark rules remain in the original stylesheets. */
+.app-shell .constellation-screen{background:var(--graph-bg)}
+.app-shell:not(.dark) .constellation-screen{color:var(--text-primary)}
+.app-shell:not(.dark) .constellation-header h1{color:var(--text-primary)}
+.app-shell:not(.dark) .constellation-header p{color:var(--text-muted)}
+.app-shell:not(.dark) .constellation-search{background:var(--graph-input);border-color:var(--card-border);color:var(--text-muted)}
+.app-shell:not(.dark) .constellation-search input{color:var(--text-primary)}
+.app-shell:not(.dark) .constellation-search input::placeholder{color:var(--text-muted)}
+.app-shell:not(.dark) .constellation-wander{background:var(--button-bg);color:var(--button-text)}
+.app-shell:not(.dark) .constellation-actions .graph-filter{background:var(--graph-input);border-color:var(--card-border);color:var(--text-secondary)}
+.app-shell:not(.dark) .constellation-actions .graph-filter.active{background:var(--button-bg);color:var(--button-text)}
+.app-shell:not(.dark) .constellation-tooltip{background:var(--graph-panel);color:var(--text-primary);border-color:var(--card-border);box-shadow:0 6px 24px #454b3917}
+.app-shell:not(.dark) :is(.constellation-loading,.graph-gesture-hint,.graph-render-error,.graph-no-results){color:var(--text-secondary)}
+.app-shell:not(.dark) .constellation-screen :is(.constellation-tools button,.constellation-zoom button){background:var(--graph-input);color:var(--text-secondary);border-color:var(--card-border)}
+.app-shell:not(.dark) .constellation-screen .constellation-tools button.enabled{color:var(--accent-primary);border-color:#8d9d86}
+.app-shell:not(.dark) .constellation-screen .keyword-rail>span{color:var(--text-muted)}
+.app-shell:not(.dark) .constellation-screen .keyword-rail button{background:#e8e6dd66;border-color:var(--card-border);color:var(--text-secondary)}
+.app-shell:not(.dark) .constellation-screen .keyword-rail button.active{color:#405e50;border-color:#8aa296;background:#dce5db99}
+.app-shell:not(.dark) :is(.constellation-filter,.constellation-info,.constellation-list,.constellation-legend){background:var(--graph-panel);border-color:var(--card-border);color:var(--text-primary);box-shadow:0 12px 34px #49432f13}
+.app-shell:not(.dark) :is(.constellation-filter .filter-title,.constellation-filter p,.constellation-info p,.constellation-info small,.constellation-list>button,.constellation-list>button small,.constellation-legend>div:first-child,.constellation-legend>div>button){color:var(--text-secondary);border-color:var(--card-border)}
+.app-shell:not(.dark) .constellation-list header{background:var(--card-bg);color:var(--text-primary)}
+.app-shell:not(.dark) :is(.constellation-info>button,.constellation-list header button){color:var(--text-muted)}
+.app-shell:not(.dark) .constellation-filter .connection-toggle{background:var(--bg-secondary);color:var(--text-primary)}
+.app-shell:not(.dark) .constellation-filter .switch{background:#cfcec5}.app-shell:not(.dark) .constellation-filter .switch.on{background:#7f947d}
+.app-shell:not(.dark) .filter-moods button{color:var(--text-secondary)}
+.app-shell:not(.dark) .filter-moods button:is(.active,:hover){background:#5267460d;border-color:#72876b21;color:var(--text-primary)}
+.app-shell:not(.dark) .filter-moods button b{color:var(--accent-primary)}
+.app-shell:not(.dark) .keyword-lock{color:var(--text-secondary);border-color:var(--card-border)}
+.app-shell:not(.dark) .keyword-lock small,.app-shell:not(.dark) .keyword-lock.locked{color:var(--accent-secondary)}
+.app-shell:not(.dark) .constellation-filter .weight>div{color:#746391}.app-shell:not(.dark) .constellation-filter .weight.structural>div{color:#397963}.app-shell:not(.dark) .constellation-filter .weight.serendipity>div{color:#98691e}
+.app-shell:not(.dark) .constellation-filter .weight input{background:var(--card-border)}
+.app-shell:not(.dark) .graph-focus-banner span{color:var(--accent-secondary);text-shadow:none}.app-shell:not(.dark) .graph-focus-banner small{color:var(--text-muted)}
+.app-shell:not(.dark) .graph-focus-banner button{background:var(--card-bg);border-color:var(--card-border);color:var(--text-secondary)}
+.app-shell:not(.dark) .constellation-screen .graph-selection-sheet{background:var(--graph-panel);border-color:var(--card-border);color:var(--text-primary);box-shadow:0 -8px 28px #4b493813}
+.app-shell:not(.dark) .graph-selection-sheet :is(.sheet-heading,.sheet-heading time,.sheet-heading button,.sheet-related h2){color:var(--text-muted)}
+.app-shell:not(.dark) .graph-selection-sheet .sheet-excerpt{color:var(--text-primary)}
+.app-shell:not(.dark) .sheet-related .record-connections>button{color:var(--text-secondary)}
+.app-shell:not(.dark) .connection-bullet{border-color:var(--accent-primary)}
+.app-shell:not(.dark) .graph-selection-sheet .sheet-actions>button{background:var(--bg-secondary);color:var(--text-primary);border-color:var(--card-border)}
+.app-shell:not(.dark) .graph-selection-sheet .sheet-actions>button:last-child{background:none;border-color:transparent;color:var(--accent-primary)}
+.app-shell:not(.dark) .graph-render-error h3{color:var(--text-primary)}
+.app-shell:not(.dark) :is(.graph-render-error .secondary,.graph-no-results button){background:var(--card-bg);color:var(--accent-secondary);border-color:var(--card-border)}
+/* Existing secondary screens already use paper/ink aliases; finish the fixed reading overlay. */
+.app-shell:not(.dark) .full-screen.detail{background:var(--bg-primary)!important;color:var(--text-primary)}
+.app-shell:not(.dark) .detail:before{opacity:calc(var(--canvas-opacity,0) * .10)}
+.app-shell:not(.dark) .detail :is(.detail-meta>span,.detail-text,.detail-related h2){color:var(--text-primary)}
+.app-shell:not(.dark) .detail :is(.detail-meta time,.detail-source,.detail-source>small,.detail-source a,.translation-tools,.sketch-dream,.public-image-unavailable){color:var(--text-secondary);border-color:var(--card-border)}
+.app-shell:not(.dark) .detail :is(.translation-tools>button,.detail-related .record-connections>button){color:var(--text-secondary);border-color:var(--card-border)}
+.app-shell:not(.dark) .detail :is(.detail-foot,.edit-area){background:var(--bg-secondary);color:var(--text-primary);border-color:var(--card-border)}
+.app-shell:not(.dark) .detail .detail-foot .icon-btn{color:var(--text-secondary);background:#4c5e4809}
+.app-shell:not(.dark) .detail .detail-foot .primary{background:var(--button-bg);color:var(--button-text)}
+.app-shell:not(.dark) .detail .sheet-handle{background:#69736140}
+
+/* Shared page hierarchy. Home/profile retain their existing navigation and profile identity. */
+.app-shell .page-title{
+ margin:0;font-family:var(--font-ui);font-size:var(--font-page-title);font-weight:var(--weight-page-title);
+ line-height:var(--line-page-title);letter-spacing:-.02em;color:var(--text-primary);
+}
+.app-shell :is(.profile-name,.settings-title,.preferences-label,.discovery-result-title h2,.trace-list-heading h2){
+ font-size:var(--font-section-title);font-weight:var(--weight-section-title);line-height:var(--line-section-title);letter-spacing:0;
+}
+.app-shell :is(.post>p,.detail-text){
+ font-size:var(--font-card-body);font-weight:var(--weight-card-body);line-height:var(--line-card-body);letter-spacing:0;
+}
+.app-shell :is(.post-author,.post-time,.post-bottom,.post-bottom button,.post-bottom a,.post-bottom .post-source,.profile-header small,.profile-stats span,.collection-note,.circle-source,.range-line>div,.canvas-label,.choice-row button,.toggle-line>span){
+ font-size:var(--font-meta);font-weight:var(--weight-meta);line-height:var(--line-meta);letter-spacing:0;
+}
+.app-shell .home-screen .wall-content{padding-inline:var(--page-gutter)}
+.app-shell .profile-screen{padding-top:var(--page-top);padding-inline:var(--page-gutter)}
+.app-shell .feature-header{padding-top:var(--page-top);padding-inline:var(--page-gutter)}
+.app-shell .constellation-header{padding:var(--page-top) var(--page-gutter) 0;grid-template-columns:72px minmax(0,1fr);gap:12px}
+.app-shell .constellation-header>div:first-child{text-align:left}
+.app-shell .constellation-header p{font-size:var(--font-meta);font-weight:var(--weight-meta);line-height:var(--line-meta);letter-spacing:0;margin:8px 0 0;color:var(--text-muted)}
+.app-shell .constellation-header .graph-library-link span{font-size:inherit}
+.app-shell .constellation-actions{gap:7px;margin-top:0;padding-top:0}
+.app-shell :is(.constellation-search input,.constellation-wander,.keyword-rail>span,.keyword-rail button,.constellation-tooltip){font-size:var(--font-meta);font-weight:var(--weight-meta);line-height:var(--line-meta);letter-spacing:0}
+.app-shell .constellation-screen{--graph-header-clearance:138px}
+.app-shell .constellation-screen .constellation-stage,.app-shell:is(:fullscreen,.expanded-graph) .constellation-screen .constellation-stage{top:var(--graph-header-clearance)}
+.app-shell .constellation-screen.has-selection .constellation-stage,.app-shell:is(:fullscreen,.expanded-graph) .constellation-screen.has-selection .constellation-stage{top:var(--graph-header-clearance)}
+.app-shell .constellation-screen .graph-focus-banner{top:146px}
+.app-shell .constellation-filter{top:78px}
+/* Paper stardust: distinct controls and chips without heavyweight filled pills. */
+.app-shell:not(.dark) .constellation-search,.app-shell:not(.dark) .constellation-actions .graph-filter{border-color:var(--graph-control-border);color:var(--graph-control-ink)}
+.app-shell:not(.dark) .constellation-search input::placeholder{color:var(--graph-control-ink)}
+.app-shell:not(.dark) .constellation-screen :is(.constellation-tools,.constellation-zoom){opacity:.82}
+.app-shell:not(.dark) .constellation-screen :is(.constellation-tools button,.constellation-zoom button){border-color:var(--graph-control-border);color:var(--graph-control-ink)}
+.app-shell:not(.dark) .constellation-screen .keyword-rail button{background:var(--graph-chip-bg);border-color:var(--graph-line);color:var(--text-secondary)}
+.app-shell:not(.dark) .constellation-screen .keyword-rail button.active{background:color-mix(in srgb,var(--accent-primary) 9%,var(--graph-bg));border-color:var(--accent-primary);color:var(--accent-primary)}
+.app-shell:not(.dark) .constellation-tooltip{background:var(--graph-tooltip-bg);border-color:var(--graph-line);border-radius:8px;color:var(--text-primary);box-shadow:0 5px 18px #4b413314}
+@media(max-width:360px){.app-shell .constellation-header{grid-template-columns:66px minmax(0,1fr);gap:8px}.app-shell .constellation-actions{gap:5px}.app-shell .constellation-wander{padding-inline:8px}}
+
+/* Compact graph cards keep the same four sizes, with a denser body leading. */
+.app-shell{--line-card-compact:24px}
+.app-shell .graph-selection-sheet{grid-template-rows:22px 48px minmax(0,1fr) 34px;row-gap:7px}
+.app-shell .graph-selection-sheet .sheet-excerpt{font-size:var(--font-card-body);font-weight:var(--weight-card-body);line-height:var(--line-card-compact)}
+.app-shell :is(.graph-selection-sheet .sheet-heading,.graph-selection-sheet .sheet-heading time,.sheet-related h2,.sheet-related .record-connections p,.graph-selection-sheet .sheet-actions>button,.constellation-filter .filter-title,.constellation-filter .weight>div){font-size:var(--font-meta);font-weight:var(--weight-meta);line-height:var(--line-meta);letter-spacing:0}
+.app-shell .sheet-related .record-connections>button{padding-block:1px;min-height:22px}
+.app-shell .constellation-list>button{font-size:var(--font-card-body);font-weight:var(--weight-card-body);line-height:var(--line-card-body)}
+.app-shell .constellation-list>button small{font-size:var(--font-meta);font-weight:var(--weight-meta);line-height:var(--line-meta)}
+.app-shell:not(.dark) .constellation-tooltip{width:max-content;max-width:min(208px,calc(100% - 24px))}
+
+/* Match the supplied mobile reference. Only these two title containers inherit this size. */
+.app-shell .echo-header,.app-shell .constellation-header{--font-page-title:20px;--line-page-title:27px}
+
+/* Quiet provenance: inherit existing meta sizes; no badges or new type scale. */
+.app-shell .record-connections .connection-source{flex:none;white-space:nowrap;font-size:.8em;font-weight:400;color:var(--text-muted)}
+.app-shell .graph-selection-sheet .sheet-heading>span{min-width:0}
+.app-shell .echo-quiet .echo-mechanism-note{max-width:290px;margin:18px auto 0;color:var(--echo-muted)}

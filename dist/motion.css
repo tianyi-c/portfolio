@@ -1,0 +1,102 @@
+/* Motion stays close to the user's action; all icons rest when idle. */
+/* Timing tokens are shared with style.css: 220 ms / 280 ms. */
+html{scrollbar-gutter:stable}
+::selection{background:#e1ebe7;color:var(--ink)}
+.profile-links .icon{width:16px;height:16px;stroke-width:1.35}
+.profile-links .arrow{display:inline-block;width:13px;height:13px;margin-left:-5px}
+.text-action .action-folder,.text-action .action-book{width:18px;height:18px;stroke-width:1.35}
+.profile-links a,.text-action{position:relative;transition:color var(--motion-quick) var(--motion-curve),transform var(--motion-quick) var(--motion-curve)}
+.profile-links a:hover{color:var(--teal);text-decoration:none}
+.profile-links a:hover .arrow{transform:translateX(3px)}
+.text-action::before{display:none;content:'';position:absolute;inset:-6px -8px;background:rgba(0,127,145,.045);border-radius:4px;opacity:0;transition:opacity var(--motion-quick) var(--motion-curve);pointer-events:none}
+.text-action:is(:hover,:focus-visible)::before{opacity:1}
+.text-action:hover{text-decoration:none}
+.text-action:active,.submit-material:active,.close-dialog:active{transform:scale(.99)}
+.text-action[aria-expanded="true"] .plus{transform:rotate(45deg)}
+.submit-material,.close-dialog{transition:transform var(--motion-quick) var(--motion-curve),background var(--motion-quick) var(--motion-curve)}
+
+/* A single underline follows the active or hovered navigation item. */
+nav{position:relative}
+nav.has-marker a::after{display:none}
+.nav-marker{position:absolute;left:0;bottom:-4px;height:1px;background:var(--teal);pointer-events:none;opacity:0;transform-origin:left}
+nav.marker-ready .nav-marker{transition:transform var(--motion-settle) var(--motion-curve),width var(--motion-settle) var(--motion-curve),opacity var(--motion-quick) var(--motion-curve)}
+
+/* Connected folder and envelope contours move as a complete drawing. */
+.motion-icon:is([data-kind="folder"],[data-kind="mail"]){transform-origin:50% 50%;transition:transform var(--motion-settle) var(--motion-curve)}
+.book-leaf{transform-origin:12px 18px}
+.motion-icon{overflow:visible}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ :is(.text-action,.drawer-material):hover .motion-icon[data-kind="folder"]{transform:translateY(-1px) rotate(-2deg)}
+ :is(.profile-links a,.contact-row):hover .motion-icon[data-kind="mail"]{transform:translateY(-1px) rotate(-2deg)}
+ :is(.text-action,.drawer-material,.process-steps>div):hover .book-leaf{animation:page-turn var(--motion-settle) var(--motion-curve)}
+ :is(.profile-links a,.file-picker,.process-steps>div):hover .ink-detail{animation:ink-mark var(--motion-settle) var(--motion-curve)}
+ .process-steps>div:hover .motion-icon[data-kind="spark"]{animation:ink-twinkle var(--motion-settle) var(--motion-curve)}
+ .process-steps>div:hover .motion-icon[data-kind="loop"]{animation:ink-nod var(--motion-settle) var(--motion-curve)}
+ .file-picker:hover>.icon{animation:paper-lift var(--motion-settle) var(--motion-curve)}
+}
+.profile-links a:focus-visible .motion-icon[data-kind="mail"]{transform:translateY(-1px) rotate(-2deg)}
+.text-action:focus-visible .motion-icon[data-kind="folder"]{transform:translateY(-1px) rotate(-2deg)}
+@keyframes page-turn{0%,100%{transform:skewY(0)}35%{transform:skewY(-4deg) scaleX(.98)}65%{transform:skewY(1deg)}}
+@keyframes ink-mark{from{stroke-dasharray:36;stroke-dashoffset:36;opacity:.3}to{stroke-dasharray:36;stroke-dashoffset:0;opacity:1}}
+@keyframes ink-twinkle{0%,100%{transform:scale(1) rotate(0)}45%{transform:scale(1.04) rotate(4deg)}}
+@keyframes ink-nod{0%,100%{transform:rotate(0)}45%{transform:rotate(6deg)}75%{transform:rotate(-2deg)}}
+@keyframes paper-lift{0%,100%{transform:translateY(0) rotate(0)}45%{transform:translateY(-1px) rotate(-2deg)}}
+
+/* Short previews borrow the feeling of a small paper note. */
+.link-preview[hidden]{display:none}
+.link-preview{position:fixed;z-index:25;width:280px;max-width:calc(100vw - 24px);padding:19px 18px;display:flex;gap:16px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:4px;box-shadow:none;color:var(--body);pointer-events:auto}
+.preview-illustration{width:34px;height:34px;margin-top:3px;color:var(--teal);stroke-width:1.1}
+.preview-title{font:500 14px/22px Alibaba,NotoSC,sans-serif;color:var(--ink)}
+.preview-description{font-size:12px;line-height:21px;margin-top:6px}
+.preview-meta{display:block;font-size:10px;line-height:18px;color:var(--muted);margin-top:10px}
+@media(prefers-reduced-motion:no-preference){
+ .link-preview{animation:preview-in var(--motion-quick) var(--motion-curve)}
+ .will-reveal{transform:translateY(3px);transition-duration:var(--motion-settle)}
+ #materials-dialog[open]{animation:drawer-enter var(--motion-settle) var(--motion-curve)}
+ #materials-dialog[open]::backdrop{animation:backdrop-enter var(--motion-quick) var(--motion-curve)}
+ #materials-dialog[open]>.drawer-header{animation:drawer-content-in var(--motion-settle) var(--motion-curve) both}
+ #materials-dialog[open]>.drawer-intro{animation:drawer-content-in var(--motion-settle) var(--motion-curve) both}
+ #materials-dialog[open]>.drawer-materials{animation:drawer-content-in var(--motion-settle) var(--motion-curve) both}
+ #materials-dialog[open]>form{animation:drawer-content-in var(--motion-settle) var(--motion-curve) both}
+ .drawer-material{animation:drawer-content-in var(--motion-quick) var(--motion-curve)}
+ @keyframes preview-in{from{opacity:0;transform:translateY(2px)}to{opacity:1;transform:none}}
+ @keyframes drawer-enter{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:none}}
+ @keyframes backdrop-enter{from{opacity:0}to{opacity:1}}
+ @keyframes drawer-content-in{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+}
+@media(prefers-reduced-motion:reduce){
+ .link-preview,.motion-icon,.motion-icon *{animation:none!important;transition:none!important}
+ .motion-icon:is([data-kind="folder"],[data-kind="mail"]),.book-leaf{transform:none!important}
+ .nav-marker{transition:none!important}
+}
+
+/* The user's supplied wordmarks keep their contours and inherit hover color. */
+.section-heading>div{min-width:0}
+.section-heading h2,.section-label,.work-top h3{transition:color var(--motion-quick) var(--motion-curve)}
+.title-wordmark{display:block;max-width:100%;background:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:left top;mask-position:left top;-webkit-mask-size:contain;mask-size:contain;mask-mode:alpha}
+.wordmark-experience{width:194.4px;height:18px;-webkit-mask-image:url('assets/experience-title.svg');mask-image:url('assets/experience-title.svg')}
+.wordmark-graduate{width:189.9px;height:18px;-webkit-mask-image:url('assets/graduate-title.svg');mask-image:url('assets/graduate-title.svg')}
+.wordmark-undergrad{width:290.7px;height:16.2px;-webkit-mask-image:url('assets/undergrad-title.svg');mask-image:url('assets/undergrad-title.svg')}
+@media(hover:hover){
+ .section-heading>div:hover :is(h2,.section-label),.work-top h3:hover{color:var(--plum)}
+}
+@media(max-width:760px){
+ .wordmark-experience{width:194.4px;height:18px}
+ .wordmark-graduate{width:189.9px;height:18px}
+ .wordmark-undergrad{width:290.7px;height:16.2px}
+}
+
+/* Each leaf keeps its contour and rotates around its own midpoint. */
+.site-sprout .sprout-leaf{transform-box:view-box;transition:transform var(--motion-settle) var(--motion-curve)}
+.site-sprout .sprout-nw{transform-origin:15px 15px}
+.site-sprout .sprout-sw{transform-origin:15px 33px}
+.site-sprout .sprout-ne{transform-origin:33px 15px}
+.site-sprout .sprout-se{transform-origin:33px 33px}
+.site-name:focus-visible .sprout-left .sprout-leaf{transform:rotate(-90deg)}
+.site-name:focus-visible .sprout-right .sprout-leaf{transform:rotate(90deg)}
+@media(hover:hover){
+ .site-name:hover .sprout-left .sprout-leaf{transform:rotate(-90deg)}
+ .site-name:hover .sprout-right .sprout-leaf{transform:rotate(90deg)}
+}
+@media(prefers-reduced-motion:reduce){.site-sprout .sprout-leaf{transition:none!important}}
+

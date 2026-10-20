@@ -1,0 +1,114 @@
+/* Voyah case study: one reading axis, wide diagrams, existing brand tokens. */
+@font-face{font-family:Alibaba;src:url('/assets/fonts/Alibaba-Medium.ttf?v=voyah-structure-v2-20261018') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:AlibabaRegular;src:url('/assets/fonts/Alibaba-Regular.ttf?v=voyah-structure-v2-20261018') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:NotoSC;src:url('/assets/fonts/NotoSansSC.ttf?v=voyah-structure-v2-20261018') format('truetype');font-weight:100 900;font-display:swap}
+.voyah-case .case-intro{max-width:none;margin-bottom:96px}
+.voyah-case .case-intro h1{font-size:34px;line-height:1.45}
+.voyah-case .case-lead{max-width:none;font-size:15px;line-height:1.85;margin-top:24px}
+.voyah-case .case-intro .meta{font-size:12px}
+.voyah-case .voyah-stat-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin:40px 0 0}
+.voyah-case .voyah-stat-row>div{display:flex;flex-direction:column;padding-top:16px;border-top:1px solid var(--line);min-width:0}
+.voyah-case .voyah-stat-row dd{margin:0;font:500 32px/42px Alibaba,NotoSC,sans-serif;color:var(--teal);font-variant-numeric:tabular-nums}
+.voyah-case .voyah-stat-row small{font:400 14px/24px Noto,NotoSC,sans-serif}
+.voyah-case .voyah-stat-row dt{order:1;margin-top:8px;font-size:13px;line-height:22px;color:var(--ink)}
+.voyah-case .voyah-stat-row .voyah-stat-note{order:2;margin-top:8px;font:400 11.5px/20px Noto,NotoSC,sans-serif;color:var(--muted)}
+.voyah-case .case-toc{position:fixed;left:auto;right:32px;top:50%;transform:translateY(-50%);width:150px;display:flex;flex-direction:column;align-items:flex-start;border:0;padding:0;gap:14px;margin:0;font-size:11px;line-height:18px;color:var(--muted);z-index:5}
+.voyah-case .case-toc a{position:relative;gap:8px;padding-left:10px}
+.voyah-case .case-toc a span{color:inherit}
+.voyah-case .case-toc a:is(:hover,[aria-current]){color:var(--ink)}
+.voyah-case .case-toc a[aria-current]::before{content:'';position:absolute;left:0;top:3px;bottom:3px;width:1px;background:var(--teal)}
+.voyah-case .case-section{display:block;margin-bottom:96px;scroll-margin-top:32px}
+.voyah-case .case-section-heading{display:block}
+.voyah-case .voyah-section-mark{display:flex;align-items:flex-start;width:max-content;max-width:100%;min-height:32px}
+.voyah-case .voyah-mark-number{width:20px;margin-right:8px;font:400 15px/20px Noto,sans-serif;color:var(--body)}
+.voyah-case .voyah-mark-slash{display:block;width:1px;height:28px;margin:4px 7px 0 0;background:var(--teal);transform:rotate(12.0334deg);transform-origin:top left}
+.voyah-case .voyah-mark-copy{min-width:0}
+.voyah-case .voyah-mark-copy>span{display:block;font:500 11px/14px Alibaba,NotoSC,sans-serif;color:var(--plum)}
+.voyah-case .voyah-mark-copy>strong{display:block;margin-top:2px;font:700 18px/18px Rany,Noto,sans-serif;letter-spacing:0;color:var(--ink)}
+.voyah-case .case-section-heading h2{font:500 18px/28px Alibaba,NotoSC,sans-serif;margin:20px 0 0}
+.voyah-case .case-section-body{margin-top:24px}
+.voyah-case .case-lead,.voyah-case .voyah-prose,.voyah-case .voyah-prose>p,.voyah-case .case-section-body>p,.voyah-case .voyah-case-example>p{width:100%;max-width:none;white-space:normal}
+.voyah-case .voyah-prose p,.voyah-case .case-section-body>p{font-size:14.5px;line-height:1.85}
+.voyah-case .voyah-prose p+p{margin-top:16px}
+.voyah-case :is(.voyah-quotes,.voyah-wireframe,.voyah-workflow){margin-top:40px}
+.voyah-case figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:12px 24px;margin-bottom:24px;font-size:12px;line-height:21px;color:var(--ink)}
+.voyah-case figcaption span{color:var(--muted);font-size:11px}
+.voyah-case .voyah-quotes{margin-top:24px}
+.voyah-case .voyah-quotes figcaption{margin-bottom:16px}
+.voyah-case .voyah-quote-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:760px}
+.voyah-case .voyah-quote-grid li{border-top:1px solid var(--line);padding-top:12px;min-width:0}
+.voyah-case .voyah-item-number{font-size:11px;line-height:18px;color:var(--muted)}
+.voyah-case blockquote{margin:8px 0;font-size:14px;line-height:24px;color:var(--ink);white-space:nowrap}
+.voyah-case .voyah-quote-grid p{font-size:12px;line-height:20px;color:var(--teal)}
+.voyah-case .voyah-source-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.voyah-case .voyah-source-row>div{padding-top:16px;border-top:1px solid var(--line);text-align:center;min-width:0}
+.voyah-case .voyah-source-row strong{display:block;font:500 28px/40px Alibaba,NotoSC,sans-serif;color:var(--teal)}
+.voyah-case .voyah-source-row small{font-size:13px;font-weight:400}
+.voyah-case .voyah-source-row .voyah-source-label{font-size:20px;color:var(--ink)}
+.voyah-case .voyah-wireframe h3{font-size:14px;line-height:24px;margin:4px 0}
+.voyah-case .voyah-wireframe p{font-size:12px;line-height:21px;color:var(--muted)}
+.voyah-case .voyah-source-merge{display:block;width:100%;height:40px;margin:16px 0;stroke:#cbd5d4;stroke-width:1}
+.voyah-case .voyah-source-merge path,.voyah-case .voyah-funnel-tiers path{vector-effect:non-scaling-stroke}
+.voyah-case .voyah-merge-stacked{display:none}
+.voyah-case .voyah-funnel-tiers{list-style:none;margin:0;padding:0;display:grid;gap:8px;justify-items:center}
+.voyah-case .voyah-funnel-tiers li{position:relative;display:grid;place-items:center;width:90%;min-height:68px;text-align:center;padding:12px 10%;}
+.voyah-case .voyah-funnel-tiers li:nth-child(2){width:76%}
+.voyah-case .voyah-funnel-tiers li:nth-child(3){width:62%;min-height:88px}
+.voyah-case .voyah-funnel-tiers svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#cbd5d4;stroke-width:1;pointer-events:none}
+.voyah-case .voyah-funnel-tiers h3{margin:0 0 2px}
+.voyah-case .voyah-funnel-result{text-align:center;margin-top:12px}
+.voyah-case .voyah-funnel-result>span{display:block;color:var(--muted);font-size:18px;line-height:26px}
+.voyah-case .voyah-funnel-result>strong{display:block;font:500 36px/48px Alibaba,NotoSC,sans-serif;color:var(--teal)}
+.voyah-case .voyah-responsibility{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 32px;border-top:1px solid var(--line);margin-top:32px;padding-top:16px;font-size:12px;line-height:22px}
+.voyah-case .voyah-responsibility>span{color:var(--muted)}
+.voyah-case .voyah-responsibility p{font-size:12px;color:var(--body)}
+.voyah-case .voyah-responsibility strong{font-weight:500;color:var(--ink)}
+.voyah-case .voyah-workflow-line{position:relative;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
+.voyah-case .voyah-workflow-line::before{content:'';position:absolute;top:12px;left:12px;right:12px;border-top:1px solid var(--line)}
+.voyah-case .voyah-workflow-line li{position:relative;min-width:0}
+.voyah-case .voyah-workflow-line svg{position:relative;display:block;box-sizing:content-box;width:24px;height:24px;padding-right:12px;margin-bottom:20px;background:var(--bg);fill:none;stroke:var(--teal);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.voyah-case .voyah-workflow-line li>span{font-size:11px;color:var(--muted)}
+.voyah-case .voyah-workflow-line h3{font-size:14px;line-height:24px;margin:6px 0 10px}
+.voyah-case .voyah-workflow-line p{font-size:12px;line-height:21px;color:var(--body)}
+.voyah-case .voyah-principles{margin-top:48px}
+.voyah-case .voyah-principles>h3{font-size:15px;line-height:24px;margin-bottom:20px}
+.voyah-case .voyah-principle-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.voyah-case .voyah-principle-grid>div{border-top:1px solid var(--line);padding-top:16px}
+.voyah-case .voyah-principle-grid span{font-size:12px;color:var(--teal)}
+.voyah-case .voyah-principle-grid h4{font-size:15px;line-height:24px;margin:8px 0}
+.voyah-case .voyah-principle-grid p{font-size:13px;line-height:23px}
+.voyah-case .voyah-case-example{margin-top:56px;padding-top:32px;border-top:1px solid var(--line);scroll-margin-top:32px}
+.voyah-case .voyah-case-example>h3{font-size:18px;line-height:28px;margin-bottom:16px}
+.voyah-case .voyah-case-example>p{max-width:none;font-size:14px;line-height:1.85}
+.voyah-case .case-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.voyah-case .case-columns h3{font-size:15px;line-height:24px}
+.voyah-case .case-columns p{font-size:13px;line-height:24px}
+.voyah-case .case-flow{margin-block:32px;gap:16px}
+.voyah-case .case-flow li{font-size:13px;padding-top:16px}
+.voyah-case .case-facts{margin-block:32px}
+.voyah-case .case-table{font-size:12px}
+.voyah-case .case-note{font-size:12px!important;color:var(--muted);line-height:1.75!important}
+.voyah-case .voyah-feedback-map{margin-top:40px}
+.voyah-case .voyah-feedback-scroll{overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.voyah-case .voyah-feedback-scroll>a{display:block}
+.voyah-case .voyah-feedback-map img{display:block;width:100%;height:auto;border:0;max-width:none}
+.voyah-case .voyah-feedback-map figcaption{display:none;margin:12px 0 0;font-size:11px;line-height:20px}
+.voyah-case .voyah-map-mobile-hint{display:none}
+.voyah-case .voyah-feedback-scroll:focus-visible{outline:1px solid var(--teal);outline-offset:4px}
+@media(max-width:1100px){.voyah-case .voyah-feedback-scroll>a{width:1100px}.voyah-case .voyah-feedback-map figcaption{display:flex;justify-content:space-between;gap:12px}.voyah-case .voyah-map-mobile-hint{display:block;margin:0}}
+@media(max-width:1100px){.voyah-case .voyah-workflow-line{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:32px}.voyah-case .voyah-workflow-line::before{display:none}.voyah-case .voyah-workflow-line li{border-top:1px solid var(--line);padding-top:16px}.voyah-case .voyah-workflow-line svg{margin-bottom:12px}}
+@media(max-width:1359px){.voyah-case .case-toc{display:none}}
+@media(max-width:760px){
+ .voyah-case .case-intro{margin-bottom:64px}.voyah-case .case-intro h1{font-size:clamp(20px,6vw,26px)}.voyah-case .case-lead{font-size:14px}
+ .voyah-case .voyah-stat-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}.voyah-case .voyah-stat-row dd{font-size:28px}
+ .voyah-case .case-section{margin-bottom:72px}.voyah-case .case-section-heading h2{font-size:18px;line-height:28px;margin-top:20px}
+ .voyah-case .case-section-body{margin-top:24px}.voyah-case .voyah-prose p,.voyah-case .case-section-body>p{font-size:14px}
+ .voyah-case figcaption{display:block}.voyah-case figcaption span{display:block;margin-top:4px}
+ .voyah-case .voyah-quote-grid{grid-template-columns:1fr;gap:16px}.voyah-case blockquote{white-space:normal}
+ .voyah-case .voyah-source-row{grid-template-columns:1fr;gap:20px}.voyah-case .voyah-source-row>div{text-align:left;display:grid;grid-template-columns:104px minmax(0,1fr);column-gap:16px}.voyah-case .voyah-source-row strong{grid-row:span 2}.voyah-case .voyah-source-row h3{margin-top:0}.voyah-case .voyah-source-row .voyah-source-label{font-size:17px}
+ .voyah-case .voyah-source-merge{height:32px}.voyah-case .voyah-merge-wide{display:none}.voyah-case .voyah-merge-stacked{display:initial}.voyah-case .voyah-funnel-tiers li{width:100%;padding:16px 10%;min-height:88px}.voyah-case .voyah-funnel-tiers li:nth-child(2){width:94%}.voyah-case .voyah-funnel-tiers li:nth-child(3){width:88%;min-height:116px}
+ .voyah-case .voyah-responsibility{justify-content:flex-start;gap:8px 20px}.voyah-case .voyah-responsibility>span{width:100%}
+ .voyah-case .voyah-workflow-line{grid-template-columns:1fr;gap:24px}.voyah-case .voyah-workflow-line li{padding:0 0 0 48px;border:0;min-height:92px}.voyah-case .voyah-workflow-line svg{position:absolute;left:0;top:0;padding:0}.voyah-case .voyah-workflow-line::before{display:block;top:12px;bottom:36px;left:12px;right:auto;border-top:0;border-left:1px solid var(--line)}.voyah-case .voyah-workflow-line h3{display:inline;margin-left:8px}.voyah-case .voyah-workflow-line p{margin-top:8px}
+ .voyah-case .voyah-principle-grid,.voyah-case .case-columns{grid-template-columns:1fr;gap:24px}.voyah-case .voyah-case-example{margin-top:40px}
+ .voyah-case .case-flow li{flex-basis:40%}.voyah-case .case-facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.voyah-case .case-facts dd{font-size:21px}
+}
