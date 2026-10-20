@@ -1,0 +1,63 @@
+name: Publish portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Prepare website paths
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import os, re, shutil
+          source = Path('dist')
+          output = Path('_site')
+          shutil.copytree(source, output, ignore=shutil.ignore_patterns('client', 'server', '.openai'))
+          if Path('assets').is_dir():
+              shutil.copytree('assets', output / 'assets', dirs_exist_ok=True)
+          owner, repo = os.environ['GITHUB_REPOSITORY'].split('/', 1)
+          base = '' if repo.lower() == owner.lower() + '.github.io' else '/' + repo
+          if base:
+              for file in output.rglob('*'):
+                  if not file.is_file() or file.suffix.lower() not in {'.html', '.css', '.js', '.mjs', '.json', '.svg'}:
+                      continue
+                  text = file.read_text(encoding='utf-8')
+                  if file.suffix.lower() == '.html':
+                      text = re.sub(r'''((?:href|src|poster|action)\s*=\s*["'])/(?!/)([^"']*)''', lambda m: m[1] + base + '/' + m[2], text)
+                  text = re.sub(r'(?<![\w/.:\-])/(assets|demos|projects|experience)/', lambda m: base + '/' + m[1] + '/', text)
+                  file.write_text(text, encoding='utf-8')
+          # GitHub Pages needs a real entry file for each Vue history route.
+          demo = output / 'demos/hualunyanxi'
+          for painting_id in ['huishanshinvtu', 'wuseyingwutu', 'daoliantu', 'furongjinjitu', 'chitianpingdenvren']:
+              entry = demo / 'painting' / painting_id / 'index.html'
+              entry.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copyfile(demo / 'index.html', entry)
+          (output / '.nojekyll').touch()
+          assert (output / 'index.html').is_file()
+          print('Prepared the static portfolio. AI API hosting must be configured separately.')
+          PY
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
