@@ -1,0 +1,8 @@
+/* Agent detail headings follow the established Voyah section mark. */
+.agent-case .case-section-mark{display:flex;align-items:flex-start;gap:0;width:max-content;max-width:100%;min-height:32px;margin-bottom:26px;letter-spacing:0}
+.agent-case .case-mark-number{width:20px;margin-right:8px;font:400 15px/20px Noto,sans-serif;color:var(--body)}
+.agent-case .case-mark-slash{display:block;width:1px;height:28px;margin:4px 7px 0 0;background:var(--teal);transform:rotate(12.0334deg);transform-origin:top left}
+.agent-case .case-mark-copy{min-width:0}
+.agent-case .case-mark-copy>span{display:block;font:500 11px/14px Alibaba,NotoSC,sans-serif;color:var(--plum)}
+.agent-case .case-mark-copy>strong{display:block;margin-top:2px;font:700 18px/18px Rany,Noto,sans-serif;letter-spacing:0;color:var(--ink)}
+@media(max-width:760px){.agent-case .case-section-mark{margin-bottom:22px}}

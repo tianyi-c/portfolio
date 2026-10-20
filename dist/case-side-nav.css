@@ -1,0 +1,7 @@
+/* Match the quiet right-side section navigation on the Voyah case study. */
+.agent-case .case-toc{position:fixed;left:auto;right:32px;top:50%;transform:translateY(-50%);width:150px;display:flex;flex-direction:column;align-items:flex-start;border:0;padding:0;gap:14px;margin:0;font-size:11px;line-height:18px;color:var(--muted);z-index:5}
+.agent-case .case-toc a{position:relative;gap:8px;padding-left:10px}
+.agent-case .case-toc a span{color:inherit}
+.agent-case .case-toc a:is(:hover,[aria-current]){color:var(--ink)}
+.agent-case .case-toc a[aria-current]::before{content:'';position:absolute;left:0;top:3px;bottom:3px;width:1px;background:var(--teal)}
+@media(max-width:1359px){.agent-case .case-toc{display:none}}
