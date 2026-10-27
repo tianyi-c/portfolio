@@ -39,10 +39,27 @@
 .soul-mechanism-flow li{position:relative;text-align:center;color:var(--ink);font-size:11px;line-height:20px;padding-top:14px;border-top:1px solid #dce4df}
 .soul-mechanism-flow li::before{content:'';position:absolute;width:4px;height:4px;top:-2.5px;left:calc(50% - 2px);border-radius:50%;background:#92b7b7}
 .soul-mechanism-flow li:not(:last-child)::after{content:'→';position:absolute;right:-15px;top:14px;color:#99b7b7}
-.soul-case .soul-demo-layout{--soul-demo-scale:.8154;grid-template-columns:320px minmax(0,1fr);gap:64px;margin-top:40px;align-items:start}
-.soul-case .soul-demo-preview{width:320px;max-width:100%;min-width:0}
+.soul-case .soul-demo-layout{--soul-demo-scale:.8205;grid-template-columns:340px minmax(0,1fr);gap:44px;margin-top:40px;align-items:start}
+.soul-case .soul-demo-preview{width:340px;max-width:100%;min-width:0}
 .soul-case .soul-demo-toolbar{font-size:10px;line-height:18px;margin-bottom:12px;color:var(--muted)}
-.soul-case .soul-demo-stage{height:620px;border-radius:6px}
+.soul-case .soul-device{position:relative;width:100%;padding:9px;border:1px solid #686964;border-radius:46px;background:linear-gradient(115deg,#777872 0%,#343632 12%,#21231f 56%,#50524c 100%);box-shadow:inset 0 0 0 2px #191b18,inset 0 0 0 3px #81837b,0 18px 36px -28px #22251e80}
+.soul-case .soul-device-screen{--device-surface:#090908;--device-ink:#f2f1ec;overflow:hidden;border-radius:36px;background:var(--device-surface);box-shadow:0 0 0 1px #080a07;isolation:isolate}
+.soul-case .soul-device[data-theme=light] .soul-device-screen{--device-surface:#f2efe7;--device-ink:#292725}
+.soul-case .soul-device-status{position:relative;display:flex;align-items:center;justify-content:space-between;height:44px;padding:0 21px;color:var(--device-ink);user-select:none;pointer-events:none}
+.soul-case .soul-device-time{font:600 11px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.2px}
+.soul-case .soul-device-island{position:absolute;top:9px;left:50%;width:28%;max-width:88px;height:25px;border-radius:20px;background:#030403;transform:translateX(-50%);box-shadow:inset 0 0 0 1px #ffffff06}
+.soul-case .soul-device-island::after{content:'';position:absolute;top:9px;right:10px;width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#243844,#0c151e 45%,#050807 75%)}
+.soul-case .soul-device-indicators{display:flex;align-items:center;gap:4px}
+.soul-case .soul-device-indicators svg{display:block;width:13px;height:10px;overflow:visible}
+.soul-case .soul-device-indicators .soul-device-battery{width:22px;height:11px}
+.soul-case .soul-device .soul-demo-stage{height:auto;aspect-ratio:390/760;border:0;border-radius:0;background:var(--device-surface)}
+.soul-case .soul-device-home{display:flex;justify-content:center;align-items:center;height:20px;color:var(--device-ink);pointer-events:none}
+.soul-case .soul-device-home span{width:34%;height:4px;border-radius:4px;background:currentColor;opacity:.9}
+.soul-case .soul-device-button{position:absolute;left:-3px;width:2px;border-radius:2px 0 0 2px;background:linear-gradient(90deg,#75786f,#33362e);pointer-events:none}
+.soul-case .soul-device-button-mute{top:87px;height:20px}
+.soul-case .soul-device-button-volume{top:132px;height:67px}
+.soul-case .soul-device-button-volume::after{content:'';position:absolute;top:31px;left:0;width:2px;height:5px;background:var(--bg)}
+.soul-case .soul-device-button-power{left:auto;right:-3px;top:146px;height:49px;border-radius:0 2px 2px 0}
 .soul-case .soul-demo-guide{padding-top:30px}
 .soul-case .soul-demo-steps{gap:0;margin:0}
 .soul-case .soul-demo-steps button{grid-template-columns:24px minmax(0,1fr);gap:6px 12px;padding:20px 0;border-top:1px solid var(--line);background:none}
@@ -65,6 +82,6 @@
  .soul-insight-map{grid-template-columns:1fr;gap:24px;margin-top:32px}.soul-case .soul-insight-map h3{margin:8px 0}.soul-insight-map>div{padding-top:14px}
  .soul-mechanism-comparison{grid-template-columns:1fr;gap:32px;margin-top:32px}.soul-mechanism-comparison h3+p{min-height:0}.soul-mechanism-flow{gap:15px;margin-top:24px}.soul-mechanism-flow li:not(:last-child)::after{right:-12px}
  .soul-case #mechanisms{margin-bottom:72px}
- .soul-case .soul-demo-layout{grid-template-columns:1fr;gap:32px;margin-top:32px}.soul-case .soul-demo-preview{width:min(320px,100%);justify-self:center}.soul-case .soul-demo-guide{padding:0}.soul-case .soul-demo-stage{height:620px}
+ .soul-case .soul-demo-layout{grid-template-columns:1fr;gap:32px;margin-top:32px}.soul-case .soul-demo-preview{width:min(340px,100%);justify-self:center}.soul-case .soul-demo-guide{padding:0}
  .soul-test-results{grid-template-columns:1fr;gap:24px;margin-top:32px}.soul-case .soul-test-results h3{margin-bottom:8px}.soul-case #validation{margin-bottom:48px}
 }

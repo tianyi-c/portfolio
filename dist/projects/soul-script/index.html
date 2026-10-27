@@ -15,7 +15,7 @@
   <script src="/motion.js?v=detail-link-spacing-20261018" defer></script>
   <link rel="stylesheet" href="/portfolio.css?v=detail-link-spacing-20261018">
 <link rel="stylesheet" href="/site-header.css?v=sticky-header-1">
-<script src="/soul-demo-guide.js?v=prototype-entry-removed-1" defer></script><script type="module" src="/demos/soul-script/demo-element.js?v=graph-warm-1"></script><style data-portfolio-style>@font-face{font-family:Alibaba;src:url('/assets/fonts/Alibaba-Medium.ttf?v=soul-integrated-20261017') format('truetype');font-weight:500;font-display:swap}
+<script src="/soul-demo-guide.js?v=phone-mockup-20261027" defer></script><script type="module" src="/demos/soul-script/demo-element.js?v=graph-warm-1"></script><style data-portfolio-style>@font-face{font-family:Alibaba;src:url('/assets/fonts/Alibaba-Medium.ttf?v=soul-integrated-20261017') format('truetype');font-weight:500;font-display:swap}
 @font-face{font-family:NotoSC;src:url('/assets/fonts/NotoSansSC.ttf?v=soul-integrated-20261017') format('truetype');font-weight:100 900;font-display:swap}
 @font-face{font-family:Noto;src:url('/assets/fonts/NotoSans.ttf?v=soul-integrated-20261017') format('truetype');font-weight:100 900;font-display:swap}
 @font-face{font-family:Rany;src:url('/assets/fonts/Rany.otf?v=soul-integrated-20261017') format('opentype');font-weight:400;font-display:swap}
@@ -529,7 +529,7 @@ nav.marker-ready .nav-marker{transition:transform var(--motion-settle) var(--mot
  .case-placeholder{min-height:160px}
  .case-end{margin-bottom:64px;gap:16px}
 }
-</style><link rel="stylesheet" href="/soul-case-study.css?v=prototype-entry-removed-1"><link rel="stylesheet" href="/case-side-nav.css?v=agent-toc-1"><script src="/case-side-nav.js?v=agent-toc-1" defer></script><link rel="stylesheet" href="/case-section-marks.css?v=unified-1"></head>
+</style><link rel="stylesheet" href="/soul-case-study.css?v=phone-mockup-20261027"><link rel="stylesheet" href="/case-side-nav.css?v=agent-toc-1"><script src="/case-side-nav.js?v=agent-toc-1" defer></script><link rel="stylesheet" href="/case-section-marks.css?v=unified-1"></head>
 <body class="project-page agent-case soul-case"><a class="skip-link" href="#overview">跳到正文</a><svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
     <symbol id="icon-note" viewBox="0 0 24 24"><path d="M5 3.7 14.7 3.2 18.8 7.4 19.2 20.4 5.1 21ZM2.6 6.1 3 18.9"/><path class="ink-fold" d="m14.7 3.2.2 4.5 3.9-.3"/><path class="ink-detail" d="M8 10.1 15.6 9.7M8.1 13.5 15.8 13.3M8.3 16.8 12.3 16.6"/></symbol>
     <symbol id="icon-feedback" viewBox="0 0 24 24"><path d="M3.2 4.3 20.4 4 20.8 15.6 11.5 15.8 7.2 20.6 7.4 16 3.3 16ZM7 8.3h9.7M7 11.8h6"/></symbol>
@@ -577,9 +577,26 @@ nav.marker-ready .nav-marker{transition:transform var(--motion-settle) var(--mot
 <div class="soul-demo-layout" data-soul-demo>
   <div class="soul-demo-preview">
     <div class="soul-demo-toolbar"><span>心笺 · 可操作原型</span></div>
-    <div class="soul-demo-stage">
-      <soul-script-demo class="soul-demo-frame" aria-label="心笺产品交互演示"></soul-script-demo>
-      <div class="soul-demo-fallback"><p data-demo-status role="status">正在加载产品演示…</p><img src="/assets/soul-script/echo-dark.png" alt="心笺原型黑夜模式的回响页面真实截图"><span>原型真实界面 · 交互加载后可直接操作</span></div>
+    <div class="soul-device" data-theme="dark">
+      <span class="soul-device-button soul-device-button-mute" aria-hidden="true"></span>
+      <span class="soul-device-button soul-device-button-volume" aria-hidden="true"></span>
+      <span class="soul-device-button soul-device-button-power" aria-hidden="true"></span>
+      <div class="soul-device-screen">
+        <div class="soul-device-status" aria-hidden="true">
+          <span class="soul-device-time">9:41</span>
+          <span class="soul-device-island"></span>
+          <span class="soul-device-indicators">
+            <svg viewBox="0 0 18 12" fill="currentColor"><rect x="1" y="8" width="3" height="4" rx=".8"/><rect x="5" y="6" width="3" height="6" rx=".8"/><rect x="9" y="3" width="3" height="9" rx=".8"/><rect x="13" y="0" width="3" height="12" rx=".8"/></svg>
+            <svg viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1 3.5a11 11 0 0 1 14 0M3.7 6.3a7 7 0 0 1 8.6 0M6.5 9.1a2.5 2.5 0 0 1 3 0"/><circle cx="8" cy="11" r=".8" fill="currentColor" stroke="none"/></svg>
+            <svg class="soul-device-battery" viewBox="0 0 27 13" fill="none"><rect x=".7" y="1" width="22" height="11" rx="3" stroke="currentColor" opacity=".55"/><rect x="3" y="3.3" width="17.5" height="6.4" rx="1.5" fill="currentColor"/><path d="M24.5 4.5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".65"/></svg>
+          </span>
+        </div>
+        <div class="soul-demo-stage">
+          <soul-script-demo class="soul-demo-frame" aria-label="心笺产品交互演示"></soul-script-demo>
+          <div class="soul-demo-fallback"><p data-demo-status role="status">正在加载产品演示…</p><img src="/assets/soul-script/echo-dark.png" alt="心笺原型黑夜模式的回响页面真实截图"><span>原型真实界面 · 交互加载后可直接操作</span></div>
+        </div>
+        <div class="soul-device-home" aria-hidden="true"><span></span></div>
+      </div>
     </div>
   </div>
   <aside class="soul-demo-guide" aria-label="核心操作">

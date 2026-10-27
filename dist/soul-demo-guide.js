@@ -3,6 +3,7 @@ if (demo) {
   const frame = demo.querySelector('soul-script-demo');
   const preview = demo.querySelector('.soul-demo-preview');
   const stage = preview.querySelector('.soul-demo-stage');
+  const device = preview.querySelector('.soul-device');
   const buttons = [...demo.querySelectorAll('[data-demo-page]')];
   const pages = new Set(buttons.map(button => button.dataset.demoPage));
   let desired = 'home';
@@ -18,6 +19,12 @@ if (demo) {
   }));
   function ready() {
     demo.dataset.demoStatus = 'ready';
+    const shell = frame.shadowRoot?.querySelector('.app-shell');
+    if (device && shell) {
+      const syncTheme = () => { device.dataset.theme = shell.classList.contains('dark') ? 'dark' : 'light'; };
+      syncTheme();
+      new MutationObserver(syncTheme).observe(shell, { attributes: true, attributeFilter: ['class'] });
+    }
     if (desired !== 'home') navigate();
   }
   frame.addEventListener('soul-demo-ready', ready);
