@@ -1,0 +1,69 @@
+#voyah-compact-research{--vr-paper:var(--bg);--vr-ink:var(--ink);--vr-body:var(--body);--vr-muted:var(--muted);--vr-line:var(--line);--vr-teal:var(--teal);--vr-tint:color-mix(in srgb,var(--teal) 5%,var(--bg));color:var(--vr-ink);font:inherit;line-height:1.65;width:100%;box-sizing:border-box}
+#voyah-compact-research *{box-sizing:border-box}
+#voyah-compact-research .vr-module{background:var(--vr-paper);padding:24px 20px;color:var(--vr-ink)}
+#voyah-compact-research p,#voyah-compact-research h2{margin:0}
+#voyah-compact-research .vr-heading{padding-right:80px}
+#voyah-compact-research .vr-eyebrow{font-size:11px;color:var(--vr-muted);letter-spacing:.05em;margin-bottom:5px}
+#voyah-compact-research h2{font-size:20px;font-weight:500;line-height:1.5}
+#voyah-compact-research .vr-description{font-size:12px;color:var(--vr-body);margin-top:7px}
+#voyah-compact-research .vr-tabs{display:flex;flex-wrap:wrap;gap:0 17px;border-bottom:1px solid var(--vr-line);margin-top:18px}
+#voyah-compact-research .vr-tabs button{appearance:none;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--vr-muted);font:inherit;font-size:12px;padding:9px 0;margin-bottom:-1px;white-space:nowrap}
+#voyah-compact-research .vr-tabs button[aria-selected="true"]{color:var(--vr-teal);border-bottom-color:var(--vr-teal);font-weight:500}
+#voyah-compact-research .vr-category{font-size:11px;color:var(--vr-muted);margin:12px 0 9px}
+#voyah-compact-research .vr-table-scroll{width:100%;overflow-x:auto}
+#voyah-compact-research .vr-table{width:100%;min-width:660px;border-collapse:collapse;table-layout:fixed;font-size:12px;line-height:1.65;text-align:left}
+#voyah-compact-research th,#voyah-compact-research td{border-bottom:1px solid var(--vr-line);padding:10px 8px;vertical-align:top;word-break:break-word}
+#voyah-compact-research thead th{font-weight:500;vertical-align:middle;padding-top:8px;padding-bottom:8px}
+#voyah-compact-research thead th:first-child{width:14%}
+#voyah-compact-research thead th span{display:block;color:var(--vr-teal);font-size:11px;font-weight:400}
+#voyah-compact-research tbody th{font-weight:400;color:var(--vr-body)}
+#voyah-compact-research .vr-own{background:var(--vr-tint)}
+#voyah-compact-research .vr-empty{color:var(--vr-muted)}
+#voyah-compact-research .vr-cell-scope{display:block;color:var(--vr-muted);font-size:11px;margin-top:3px}
+#voyah-compact-research .vr-actions{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;margin-top:11px}
+#voyah-compact-research .vr-expand{border:0;background:transparent;color:var(--vr-teal);padding:4px 0;font:inherit;font-size:12px}
+#voyah-compact-research .vr-note{font-size:11px;color:var(--vr-muted)}
+#voyah-compact-research .vr-focus{font-size:12px;color:var(--vr-body);margin-top:11px;padding-left:10px;border-left:2px solid var(--vr-line)}
+#voyah-compact-research .vr-evidence{font-size:11px;color:var(--vr-muted);margin-top:14px}
+#voyah-compact-research .vr-evidence summary{width:fit-content;padding:4px 0}
+#voyah-compact-research .vr-evidence-body{padding:10px 0 0;overflow-wrap:anywhere}
+#voyah-compact-research .vr-evidence-body h3{font-size:12px;font-weight:500;margin:14px 0 5px;color:var(--vr-ink)}
+#voyah-compact-research .vr-evidence-body p{margin-bottom:6px}
+#voyah-compact-research .vr-evidence-body a{color:var(--vr-teal);text-decoration:underline;text-underline-offset:2px}
+#voyah-compact-research .vr-source-row{border-top:1px solid var(--vr-line);margin-top:8px;padding-top:5px}
+#voyah-compact-research .vr-source-row summary{color:var(--vr-body);font-size:12px}
+#voyah-compact-research .vr-source-row[open] summary{margin-bottom:8px}
+#voyah-compact-research .vr-source-row a{display:inline-block;margin-right:7px}
+#voyah-compact-research .vr-time-note{display:block;color:var(--vr-muted);margin:3px 0 8px}
+#voyah-compact-research .vr-legacy{margin-top:5px;font-size:11px;color:var(--vr-muted)}
+#voyah-compact-research .vr-legacy summary{width:fit-content;padding:4px 0}
+#voyah-compact-research .vr-legacy-body{padding-top:9px;color:var(--vr-body)}
+#voyah-compact-research .vr-legacy-body p{margin-bottom:8px}
+#voyah-compact-research .vr-history-date{display:block;color:var(--vr-muted);margin-bottom:3px}
+#voyah-compact-research .vr-legacy-body a{color:var(--vr-teal);text-decoration:underline;text-underline-offset:2px}
+#voyah-compact-research .vr-legacy-note{color:var(--vr-muted)}
+@media(max-width:500px){#voyah-compact-research .vr-module{padding:18px 12px}#voyah-compact-research .vr-heading{padding-right:0}#voyah-compact-research .vr-tabs{gap:0 15px}#voyah-compact-research .vr-note{width:100%}}
+@media(pointer:coarse){#voyah-compact-research .vr-tabs button,#voyah-compact-research .vr-expand,#voyah-compact-research .vr-evidence summary,#voyah-compact-research .vr-legacy summary{min-height:44px}}
+/* Follow the existing portfolio grid and type; this module has no preview frame. */
+.voyah-case #competitors .case-section-body{margin-top:24px}
+.voyah-case #voyah-compact-research .vr-module{background:transparent;padding:0;margin-top:0}
+.voyah-case #voyah-compact-research .vr-eyebrow{margin-bottom:0}
+.voyah-case #voyah-compact-research .vr-table{min-width:780px}
+.voyah-case #voyah-compact-research .vr-tabs{margin-top:0}
+.voyah-case #voyah-compact-research .vr-note{margin-top:12px;text-align:right}
+.voyah-case #voyah-compact-research .vr-table-scroll{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.voyah-case #voyah-compact-research .vr-table-scroll:focus-visible{outline:1px solid var(--teal);outline-offset:4px}
+.voyah-case #voyah-compact-research tr>:first-child{position:sticky;left:0;background:var(--bg);z-index:1}
+.voyah-case #voyah-compact-research .vr-legacy{margin-top:4px}
+@media(max-width:760px){.voyah-case #voyah-compact-research .vr-tabs{gap:0 16px}.voyah-case #voyah-compact-research .vr-actions{gap:6px 20px}}
+
+#voyah-compact-research .vr-meta{display:flex;align-items:baseline;justify-content:space-between;gap:6px 20px;flex-wrap:wrap;color:var(--vr-muted);font-size:11px;line-height:20px;margin-bottom:10px}
+#voyah-compact-research thead th .vr-model-years{color:var(--vr-muted);font-size:10.5px;line-height:17px;margin-top:3px}
+#voyah-compact-research .vr-insights{margin-top:26px;padding-top:18px;border-top:1px solid var(--vr-line)}
+#voyah-compact-research .vr-insights h3{font:500 13px/22px Alibaba,NotoSC,sans-serif;margin:0 0 14px;color:var(--vr-ink)}
+#voyah-compact-research .vr-insight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+#voyah-compact-research .vr-insight-grid article{min-width:0}
+#voyah-compact-research .vr-insight-grid h4{font:500 12px/20px Alibaba,NotoSC,sans-serif;margin:0 0 5px;color:var(--vr-ink)}
+#voyah-compact-research .vr-insight-grid p{font-size:12px;line-height:21px;color:var(--vr-body)}
+#voyah-compact-research .vr-insight-grid a{display:inline-block;font-size:11px;line-height:20px;color:var(--vr-teal);margin-top:8px}
+@media(max-width:600px){#voyah-compact-research .vr-insight-grid{grid-template-columns:1fr;gap:20px}#voyah-compact-research .vr-insight-grid a{margin-top:4px}#voyah-compact-research .vr-meta{gap:4px 16px}}
